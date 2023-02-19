@@ -1,0 +1,40 @@
+<script>
+	import FullNavigation from './FullNavigation.svelte';
+	import MobileNavigation from './MobileNavigation.svelte';
+
+	const links = [
+		{
+			href: '/blog',
+			text: 'Blog',
+			external: false,
+			action: false
+		},
+		{
+			href: '/novels',
+			text: 'Novels',
+			external: false,
+			action: false
+		},
+		{
+			href: '/press',
+			text: 'Press',
+			external: false,
+			action: false
+		},
+		{
+			href: '/contact',
+			text: 'Contact',
+			external: false,
+			action: false
+		},
+		{
+			href: '#newsletter',
+			text: 'Newsletter',
+			external: false,
+			action: true
+		}
+	];
+</script>
+
+<FullNavigation {links} class="nav" />
+<MobileNavigation {links} />
