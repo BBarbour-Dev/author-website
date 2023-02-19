@@ -8,7 +8,7 @@
 </script>
 
 <main>
-	<Navbar />
+	<Navbar {hideNewsletterSignUp} />
 	<div class="content-wrapper">
 		<slot />
 	</div>

@@ -35,7 +35,8 @@
 		overflow: auto;
 		transform: translate(-50%, -50%);
 		padding: 1rem;
-		background-color: var(--primary);
-		border-radius: 5px;
+		background-color: var(--text);
+		color: var(--background);
+		border-radius: 8px;
 	}
 </style>

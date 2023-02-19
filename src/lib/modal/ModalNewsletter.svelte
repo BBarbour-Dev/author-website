@@ -10,9 +10,29 @@
 </script>
 
 <ModalWrapper eventName="close-modal-newsletter" on:close-modal-newsletter>
-	<h3>Thank you for joining the newsletter!</h3>
-	<button on:click={closeModal}>Close</button>
+	<p class="modal-body">🥳 🥳 Thank you for joining the Brian Philip newsletter!</p>
+	<div class="button-row"><button on:click={closeModal}>Close</button></div>
 </ModalWrapper>
 
 <style>
+	.modal-body {
+		text-align: center;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.button-row {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.button-row button {
+		border-radius: 8px;
+		width: 50%;
+		padding: 1rem;
+		font-size: 1rem;
+		background-color: var(--primary);
+		color: var(--background);
+	}
 </style>

@@ -2,7 +2,9 @@
 	import FullNavigation from './FullNavigation.svelte';
 	import MobileNavigation from './MobileNavigation.svelte';
 
-	const links = [
+	export let hideNewsletterSignUp;
+
+	let links = [
 		{
 			href: '/blog',
 			text: 'Blog',
@@ -34,6 +36,14 @@
 			action: true
 		}
 	];
+
+	$: {
+		if (hideNewsletterSignUp) {
+			links = links.filter((link) => {
+				return link.href !== '#newsletter';
+			});
+		}
+	}
 </script>
 
 <FullNavigation {links} class="nav" />
