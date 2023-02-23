@@ -40,7 +40,7 @@
 		font-weight: bold;
 		margin: 1rem;
 		text-align: center;
-		font-family: 'UnicalAntiqua';
+		font-family: 'Shojumaru';
 	}
 
 	.nav-right {

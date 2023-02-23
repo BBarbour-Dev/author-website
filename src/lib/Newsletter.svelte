@@ -5,15 +5,20 @@
 
 	export let hideNewsletterSignUp;
 	let newsletterModal = false;
+	let error = '';
 
-	async function handleForm({ formReturn, data, action, cancel }) {
-		return async ({ result, update }) => {
-			if (result.data.hideNewsletterSignUp) {
+	async function handleForm(_form) {
+		return async ({ result }) => {
+			if (result.type !== 'error') {
 				newsletterModal = true;
-
 				if (browser) {
 					window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 				}
+			} else {
+				error = 'Server error, please try again.';
+				setTimeout(() => {
+					error = '';
+				}, 5000);
 			}
 		};
 	}
@@ -27,7 +32,10 @@
 {#if !hideNewsletterSignUp}
 	<div id="newsletter">
 		<p class="footer-text">Join my Newsletter today to get updates!</p>
-		<form method="POST" action="?/newsletter" use:enhance={handleForm}>
+		{#if error}
+			<p class="error">{error}</p>
+		{/if}
+		<form method="POST" action="/newsletter?/subscribe" use:enhance={handleForm}>
 			<div class="form-row">
 				<label for="name">Name/Username*</label>
 				<input type="text" id="name" name="name" required />
@@ -54,6 +62,14 @@
 
 	label {
 		display: block;
+	}
+
+	.error {
+		color: rgb(114, 0, 0);
+		background-color: rgb(213, 149, 149);
+		padding: 1rem;
+		margin-bottom: 1rem;
+		text-align: center;
 	}
 
 	.footer-text {

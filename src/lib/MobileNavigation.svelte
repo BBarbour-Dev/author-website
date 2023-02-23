@@ -81,7 +81,7 @@
 		display: block;
 		text-decoration: none;
 		font-weight: bold;
-		font-family: 'UnicalAntiqua';
+		font-family: 'Shojumaru';
 	}
 
 	.link {

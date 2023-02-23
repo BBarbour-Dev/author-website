@@ -4,8 +4,8 @@
 }
 
 @font-face {
-	font-family: 'UnicalAntiqua';
-	src: url('/UncialAntiqua-Regular.ttf');
+	font-family: 'Shojumaru';
+	src: url('/Shojumaru-Regular.ttf');
 }
 
 :root {
@@ -17,6 +17,8 @@
 	--dark: #13161b;
 	--white: #ffffff;
 	--off-white: #cad0de;
+	--error-text: #720000;
+	--error-background: #d59595;
 }
 
 body {

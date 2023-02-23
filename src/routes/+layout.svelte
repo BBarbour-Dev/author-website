@@ -10,7 +10,7 @@
 <main>
 	<Navbar {hideNewsletterSignUp} />
 	<div class="content-wrapper">
-		<slot />
+		<slot {hideNewsletterSignUp} />
 	</div>
 	<Footer bind:hideNewsletterSignUp />
 </main>
