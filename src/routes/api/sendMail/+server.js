@@ -1,12 +1,12 @@
 import { json, error } from '@sveltejs/kit';
 import { client } from '../../../config/db';
+import config from '../../../config';
 import { generateMail, sendMail } from '../../../emailTemplates/newsletter';
 
 export async function POST(event) {
 	try {
 		console.log('firing emails!');
 		const doc = await event.request.json();
-
 		const toSend = [];
 
 		if (doc.template === 'Newsletter') {
