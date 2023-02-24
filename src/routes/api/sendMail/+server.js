@@ -54,6 +54,6 @@ export async function POST(event) {
 		return json(toSend);
 	} catch (err) {
 		console.error(err);
-		error(500, 'Internal server error.');
+		return json(err);
 	}
 }

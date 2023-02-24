@@ -25,8 +25,8 @@ export async function sendMail({ mailto, subject, html, template }) {
 		},
 		body
 	});
-	const response = await data.json();
-	console.log(response);
+	const res = await data.json();
+	console.log('send mail attempt', res);
 }
 
 export function generateMail(bodyMarkdown, emailId, type) {
