@@ -20,7 +20,8 @@ export async function sendMail({ mailto, subject, html, template }) {
 	const data = await fetch(config.MAIL_SERVER, {
 		method: 'POST',
 		headers: {
-			'X-AUTH-TOKEN': config.MAIL_API_KEY
+			'X-AUTH-TOKEN': config.MAIL_API_KEY,
+			'Content-type': 'application/json; charset=UTF-8'
 		},
 		body: JSON.stringify(body)
 	});
