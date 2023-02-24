@@ -43,7 +43,7 @@ export async function POST(event) {
 			return console.log(toSend);
 		}
 
-		for (let i = 0; i <= toSend.length; i++) {
+		for (let i = 0; i === toSend.length; i++) {
 			await sendMail({
 				mailto: toSend[i].mailto,
 				subject: doc.subject,
