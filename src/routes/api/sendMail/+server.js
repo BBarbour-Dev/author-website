@@ -16,13 +16,17 @@ export async function POST(event) {
 		emails = await client.fetch('*[_type == "emailAddress" && newsletter == true]');
 		emails.forEach((email) => {
 			let html = generateMail(doc.bodyMarkdown, email._id, 'newsletter?/unsubscribe');
-			console.log(html);
+			if (config.ENV === 'dev') {
+				console.log(html);
+			}
 		});
 	} else if (doc.template === 'Promotion') {
 		emails = await client.fetch('*[_type == "emailAddress" && promotions == true]');
 		emails.forEach((email) => {
 			let html = generateMail(doc.bodyMarkdown, email._id, 'newsletter?/unsubscribe/promotions');
-			console.log(html);
+			if (config.ENV === 'dev') {
+				console.log(html);
+			}
 		});
 	}
 	return json(true);
