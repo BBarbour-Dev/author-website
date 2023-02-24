@@ -1,7 +1,7 @@
 import config from '../config/index';
 
 export async function sendMail({ mailto, subject, html, template }) {
-	console.log('sending email to:', `${email} + ${template}`);
+	console.log('sending email to:', `${mailto} + ${template}`);
 	const data = await fetch(config.MAIL_SERVER, {
 		method: 'POST',
 		headers: {
@@ -18,7 +18,7 @@ export async function sendMail({ mailto, subject, html, template }) {
 				}
 			],
 			subject: subject,
-			htm_part: html
+			html_part: html
 		}
 	});
 	const response = await data.json();
