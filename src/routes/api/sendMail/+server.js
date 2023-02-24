@@ -2,10 +2,6 @@ import { json } from '@sveltejs/kit';
 import { client } from '../../../config/db';
 import { generateMail } from '../../../emailTemplates/newsletter';
 
-export function GET(event) {
-	return new Response('test');
-}
-
 export async function POST(event) {
 	console.log('firing emails!');
 	const doc = await event.request.json();
