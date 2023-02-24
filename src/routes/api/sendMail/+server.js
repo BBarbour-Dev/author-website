@@ -1,7 +1,19 @@
-import { json, error } from '@sveltejs/kit';
+import { json } from '@sveltejs/kit';
 import { client } from '../../../config/db';
 import config from '../../../config';
-import { generateMail, sendMail } from '../../../emailTemplates/newsletter';
+import { generateHtmlTemplate, sendMail } from '../../../emailTemplates/newsletter';
+
+const unsubNewsletter = 'newsletter?/unsubscribe';
+const unsubPromotion = 'newsletter?/unsubscribe/promotions';
+
+function getUnsubPath(template) {
+	switch (template) {
+		case 'Newsletter':
+			return unsubNewsletter;
+		case 'Promotion':
+			return unsubPromotion;
+	}
+}
 
 export async function POST(event) {
 	try {
@@ -9,34 +21,22 @@ export async function POST(event) {
 		const doc = await event.request.json();
 		const toSend = [];
 
-		if (doc.template === 'Newsletter') {
-			const emails = await client.fetch('*[_type == "emailAddress" && newsletter == true]');
+		const emails = await client.fetch(
+			`*[_type == "emailAddress" && ${doc.template.toLowerCase()} == true]`
+		);
 
-			emails.forEach((email) => {
-				const html = generateMail(doc.bodyMarkdown, email._id, 'newsletter?/unsubscribe');
-				console.log(email);
-				toSend.push({
-					mailto: email.mailto,
-					html,
-					template: doc.template
-				});
+		emails.forEach((email) => {
+			console.log('email doc', email);
+			toSend.push({
+				mailto: email.mailto,
+				html: generateHtmlTemplate({
+					body: doc.bodyMarkdown,
+					id: email._id,
+					unsubPath: getUnsubPath(doc.template)
+				}),
+				template: doc.template
 			});
-		} else if (doc.template === 'Promotion') {
-			emails = await client.fetch('*[_type == "emailAddress" && promotions == true]');
-			emails.forEach((email) => {
-				console.log(email);
-				const html = generateMail(
-					doc.bodyMarkdown,
-					email._id,
-					'newsletter?/unsubscribe/promotions'
-				);
-				toSend.push({
-					mailto: email.mailto,
-					html,
-					template: doc.template
-				});
-			});
-		}
+		});
 
 		if (config.ENV === 'dev') {
 			return console.log(toSend);
