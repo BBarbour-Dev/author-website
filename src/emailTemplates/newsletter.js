@@ -1,7 +1,7 @@
 import config from '../config/index';
 
 export async function sendMail({ mailto, subject, html, template }) {
-	console.log('sending email to:', `Address: ${mailto} Template: ${template.toLowerCase()}`);\
+	console.log('sending email to:', `Address: ${mailto} Template: ${template.toLowerCase()}`);
 	const body = {
 		from: {
 			email: `${template.toLowerCase()}@authorbrianphilip.com`,
