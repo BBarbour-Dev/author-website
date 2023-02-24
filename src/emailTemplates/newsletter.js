@@ -1,4 +1,28 @@
-import config from '../config/index';
+import { MAIL_SERVER, MAIL_API_KEY } from '../config/index';
+
+export async function sendMail(email, template, html) {
+	const data = await fetch(MAIL_SERVER, {
+		method: 'POST',
+		headers: {
+			'X-AUTH-TOKEN': MAIL_API_KEY
+		},
+		body: {
+			from: {
+				email: `${template.toLowerCase()}@authorbrianphilip.com`,
+				name: 'Author Brian Philip'
+			},
+			to: [
+				{
+					email: email.mailto
+				}
+			],
+			subject: email.subject,
+			htm_part: html
+		}
+	});
+	const response = await data.json();
+	console.log(response);
+}
 
 export function generateMail(bodyMarkdown, emailId, type) {
 	return `

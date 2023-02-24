@@ -1,7 +1,6 @@
 import { subscribe, unsubscribe, unsubscribePromotions } from '../../actions/newsletter';
 
 export async function load({ cookies, url }) {
-	console.log(url);
 	const unsubToken = url.search.split('unsubscribe?')[1];
 	const unsubPromotion = url.search.split('unsubscribe/promotions?')[1];
 	if (unsubToken) {
