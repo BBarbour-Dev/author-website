@@ -32,7 +32,8 @@ export async function POST(event) {
 				html: generateHtmlTemplate({
 					body: doc.bodyMarkdown,
 					id: email._id,
-					unsubPath: getUnsubPath(doc.template)
+					unsubPath: getUnsubPath(doc.template),
+					env: config.ENV
 				}),
 				template: doc.template
 			});

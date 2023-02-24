@@ -1,8 +1,7 @@
 import config from '../config/index';
 
 export async function sendMail({ mailto, subject, html, template }) {
-	console.log('sending email to:', `Address: ${mailto} Template: ${template.toLowerCase()}`);
-
+	console.log('sending email to:', `Address: ${mailto} Template: ${template.toLowerCase()}`);\
 	const body = {
 		from: {
 			email: `${template.toLowerCase()}@authorbrianphilip.com`,
@@ -29,7 +28,7 @@ export async function sendMail({ mailto, subject, html, template }) {
 	console.log('send mail attempt', res);
 }
 
-export function generateMail({ body, id, unsubPath }) {
+export function generateHtmlTemplate({ body, id, unsubPath, env }) {
 	return `
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -187,7 +186,7 @@ table, td { color: #fff9ff; } #u_body a { color: #292e39; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Montserrat',sans-serif;" align="left">
         
   <div style="line-height: 150%; text-align: left; word-wrap: break-word;">
-    ${bodyMarkdown}
+    ${body}
   </div>
 
       </td>
@@ -222,9 +221,9 @@ table, td { color: #fff9ff; } #u_body a { color: #292e39; text-decoration: under
         
   <div style="line-height: 150%; text-align: left; word-wrap: break-word;">
     <p style="line-height: 150%;">To unsubscribe to the newsletter <a rel="noopener" href="${
-			config.ENV === 'dev'
-				? `http://localhost:5173/${type}?${emailId}`
-				: `http://authorbrianphilip.com/${type}?${emailId}`
+			env === 'dev'
+				? `http://localhost:5173/${unsubPath}?${id}`
+				: `http://authorbrianphilip.com/${unsubPath}?${id}`
 		}" target="_blank">click here.</a></p>
 <p style="line-height: 150%;">Any questions or comments, you can <a rel="noopener" href="http://localhost:5173/contact" target="_blank">contact me</a>.</p>
   </div>
