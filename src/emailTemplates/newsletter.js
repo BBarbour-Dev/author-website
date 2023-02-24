@@ -1,10 +1,10 @@
-import { MAIL_SERVER, MAIL_API_KEY } from '../config/index';
+import config from '../config/index';
 
 export async function sendMail(email, template, html) {
-	const data = await fetch(MAIL_SERVER, {
+	const data = await fetch(config.MAIL_SERVER, {
 		method: 'POST',
 		headers: {
-			'X-AUTH-TOKEN': MAIL_API_KEY
+			'X-AUTH-TOKEN': config.MAIL_API_KEY
 		},
 		body: {
 			from: {
