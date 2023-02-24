@@ -29,7 +29,7 @@ export async function POST(event) {
 					'newsletter?/unsubscribe/promotions'
 				);
 				toSend.push({
-					email,
+					email: email.mailto,
 					html,
 					template: doc.template
 				});
@@ -41,7 +41,12 @@ export async function POST(event) {
 		}
 
 		for (let i = 0; i <= toSend.length; i++) {
-			await sendMail(toSend[i].email, doc.template, toSend[i].html);
+			await sendMail({
+				mailto: toSend[i].mailto,
+				subject: doc.subject,
+				html: toSend[i].html,
+				template: doc.template
+			});
 		}
 
 		return json(toSend);
