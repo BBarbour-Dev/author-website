@@ -1,16 +1,17 @@
 @font-face {
 	font-family: 'Montserrat';
-	src: url('/Montserrat-VariableFont_wght.ttf'), url('/Montserrat-Italic-VariableFont_wght.ttf');
+	src: url('/font/Montserrat-VariableFont_wght.ttf'),
+		url('/font/Montserrat-Italic-VariableFont_wght.ttf');
 }
 
 @font-face {
 	font-family: 'Shojumaru';
-	src: url('/Shojumaru-Regular.ttf');
+	src: url('/font/Shojumaru-Regular.ttf');
 }
 
 :root {
 	--background: #609f77;
-	--background-transparent: rgba(96, 159, 119, .5);
+	--background-transparent: rgba(96, 159, 119, 0.5);
 	--text: #fff9ff;
 	--dark-text: #424242;
 	--primary: #292e39;
@@ -24,7 +25,7 @@
 body {
 	background-color: var(--background);
 	color: var(--text);
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 body h1 {

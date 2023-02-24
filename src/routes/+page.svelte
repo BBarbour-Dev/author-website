@@ -19,7 +19,7 @@
 <style>
 	.hero {
 		margin: 3rem 0;
-		background-image: url('/endless-clouds.svg');
+		background-image: url('/hero/clouds.svg');
 		background-color: var(--background-transparent);
 		min-height: 16rem;
 		display: flex;
