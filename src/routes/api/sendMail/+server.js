@@ -15,7 +15,7 @@ export async function POST(event) {
 			emails.forEach((email) => {
 				const html = generateMail(doc.bodyMarkdown, email._id, 'newsletter?/unsubscribe');
 				toSend.push({
-					email: doc.mailto,
+					email: email.mailto,
 					html,
 					template: doc.template
 				});
@@ -29,7 +29,7 @@ export async function POST(event) {
 					'newsletter?/unsubscribe/promotions'
 				);
 				toSend.push({
-					email: doc.mailto,
+					email: email.mailto,
 					html,
 					template: doc.template
 				});
