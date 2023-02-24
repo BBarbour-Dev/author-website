@@ -14,8 +14,9 @@ export async function POST(event) {
 
 			emails.forEach((email) => {
 				const html = generateMail(doc.bodyMarkdown, email._id, 'newsletter?/unsubscribe');
+				console.log(email);
 				toSend.push({
-					email: email.mailto,
+					mailto: email.mailto,
 					html,
 					template: doc.template
 				});
@@ -23,13 +24,14 @@ export async function POST(event) {
 		} else if (doc.template === 'Promotion') {
 			emails = await client.fetch('*[_type == "emailAddress" && promotions == true]');
 			emails.forEach((email) => {
+				console.log(email);
 				const html = generateMail(
 					doc.bodyMarkdown,
 					email._id,
 					'newsletter?/unsubscribe/promotions'
 				);
 				toSend.push({
-					email: email.mailto,
+					mailto: email.mailto,
 					html,
 					template: doc.template
 				});

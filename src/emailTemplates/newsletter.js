@@ -2,24 +2,27 @@ import config from '../config/index';
 
 export async function sendMail({ mailto, subject, html, template }) {
 	console.log('sending email to:', `${mailto} + ${template}`);
+
+	const body = {
+		from: {
+			email: `${template.toLowerCase()}@authorbrianphilip.com`,
+			name: 'Author Brian Philip'
+		},
+		to: [
+			{
+				email: mailto
+			}
+		],
+		subject: subject,
+		html_part: html
+	};
+
 	const data = await fetch(config.MAIL_SERVER, {
 		method: 'POST',
 		headers: {
 			'X-AUTH-TOKEN': config.MAIL_API_KEY
 		},
-		body: {
-			from: {
-				email: `${template.toLowerCase()}@authorbrianphilip.com`,
-				name: 'Author Brian Philip'
-			},
-			to: [
-				{
-					email: mailto
-				}
-			],
-			subject: subject,
-			html_part: html
-		}
+		body
 	});
 	const response = await data.json();
 	console.log(response);
