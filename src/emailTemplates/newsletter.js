@@ -22,8 +22,9 @@ export async function sendMail({ mailto, subject, html, template }) {
 		headers: {
 			'X-AUTH-TOKEN': config.MAIL_API_KEY
 		},
-		body
+		body: JSON.stringify(body)
 	});
+
 	const res = await data.json();
 	console.log('send mail attempt', res);
 }

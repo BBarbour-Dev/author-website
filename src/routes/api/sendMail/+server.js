@@ -17,7 +17,7 @@ function getUnsubPath(template) {
 
 export async function POST(event) {
 	try {
-		console.log('firing emails!');
+		console.log('sendMail function firing emails...');
 		const doc = await event.request.json();
 		const toSend = [];
 
@@ -26,7 +26,6 @@ export async function POST(event) {
 		);
 
 		emails.forEach((email) => {
-			console.log('email doc', email);
 			toSend.push({
 				mailto: email.mailto,
 				html: generateHtmlTemplate({
