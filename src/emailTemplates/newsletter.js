@@ -1,33 +1,18 @@
 import config from '../config/index';
+import mailgun from 'mailgun-js';
+
+const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
 export async function sendMail({ mailto, subject, html, template }) {
-	console.log('sending email to:', `Address: ${mailto} Template: ${template.toLowerCase()}`);
-	const body = {
-		from: {
-			email: `${template.toLowerCase()}@authorbrianphilip.com`,
-			name: 'Author Brian Philip'
-		},
-		to: [
-			{
-				email: mailto,
-				name: mailto
-			}
-		],
+	const mail = {
+		from: `${template.toLowerCase()}@authorbrianphilip.com`,
+		to: mailto,
 		subject,
-		html_part: html
+		html
 	};
 
-	const data = await fetch(config.MAIL_SERVER, {
-		method: 'POST',
-		headers: {
-			'X-AUTH-TOKEN': config.MAIL_API_KEY,
-			'Content-type': 'application/json; charset=UTF-8'
-		},
-		body: JSON.stringify(body)
-	});
-
-	const res = await data.json();
-	console.log('send mail attempt', res);
+	const sentMail = await mg.messages().send(mail);
+	console.log(sentMail);
 }
 
 export function generateHtmlTemplate({ body, id, unsubPath, env }) {
