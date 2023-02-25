@@ -32,6 +32,7 @@ export async function POST(event) {
 			const email = emails[i];
 			toSend.push({
 				mailto: email.mailto,
+				template: doc.template,
 				html: await generateHtmlTemplate({
 					name: email.name,
 					body: md.render(doc.bodyMarkdown),
