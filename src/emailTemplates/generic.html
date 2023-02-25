@@ -115,24 +115,28 @@
             <p>Brian Philip</p>
         </a>
     </header>
-    <p>👋 Hello [{username}}!</p>
-    <p>{{body}}</p>
-    <footer>
-        <p>Wish to unsubscribe from emails like this? <a href="{{unsubUrl}}">Click here.</a></p>
-        <p>Want to say hi or ask a question? <a href="http://authorbrianphilip.com/contact">Contact me.</a></p>
-        <p class="footer-text">Social Links</p>
-        <div class="social-links">
-            <a href="http://authorbrianphilip.com" target="_blank" rel="noopener noreferrer">authorbrianphilip.com</a>
-            <a href="https://amzn.to/3IBsvAO" target="_blank" rel="noopener noreferrer">amazon</a>
-            <a href="https://www.royalroad.com/profile/333730" target="_blank" rel="noopener noreferrer">royal road</a>
-            <a href="https://twitter.com/BBarbourDev" target="_blank" rel="noopener noreferrer">twitter</a>
-        </div>
-        <p class="footer-text small">
-            ©2023 Brian Philip Author. Site built by me. My dev site is at
-            <a href="http://bbarbour.dev">bbarbour.dev</a>.
-        </p>
+    <p>👋 Hello <%= username %>!</p>
+    <%= body %>
+        <footer>
+            <p>Wish to unsubscribe from emails like this? <a
+                    href="http://authorbrianphilip.com/<%= unsubPath %><%= id %>">Click
+                    here.</a></p>
+            <p>Want to say hi or ask a question? <a href="http://authorbrianphilip.com/contact">Contact me.</a></p>
+            <p class="footer-text">Social Links</p>
+            <div class="social-links">
+                <a href="http://authorbrianphilip.com" target="_blank"
+                    rel="noopener noreferrer">authorbrianphilip.com</a>
+                <a href="https://amzn.to/3IBsvAO" target="_blank" rel="noopener noreferrer">amazon store</a>
+                <a href="https://www.royalroad.com/profile/333730" target="_blank" rel="noopener noreferrer">royal
+                    road</a>
+                <a href="https://twitter.com/BBarbourDev" target="_blank" rel="noopener noreferrer">twitter</a>
+            </div>
+            <p class="footer-text small">
+                ©2023 Brian Philip Author. Site built by me. My dev site is at
+                <a href="http://bbarbour.dev">bbarbour.dev</a>.
+            </p>
 
-    </footer>
+        </footer>
 
 </body>
 

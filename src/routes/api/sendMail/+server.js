@@ -1,7 +1,10 @@
 import { json } from '@sveltejs/kit';
+import MarkdownIt from 'markdown-it';
 import { client } from '../../../config/db';
 import config from '../../../config';
 import { generateHtmlTemplate, sendMail } from '../../../emailTemplates/newsletter';
+
+const md = MarkdownIt();
 
 const unsubNewsletter = 'newsletter?/unsubscribe';
 const unsubPromotion = 'newsletter?/unsubscribe/promotions';
@@ -29,10 +32,9 @@ export async function POST(event) {
 			toSend.push({
 				mailto: email.mailto,
 				html: generateHtmlTemplate({
-					body: doc.bodyMarkdown,
+					body: md.render(doc.bodyMarkdown),
 					id: email._id,
-					unsubPath: getUnsubPath(doc.template),
-					env: config.ENV
+					unsubPath: getUnsubPath(doc.template)
 				}),
 				template: doc.template
 			});

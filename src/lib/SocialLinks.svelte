@@ -5,7 +5,7 @@
 
 <p class="footer-text">Social Links</p>
 <div class="social-links">
-	<a href="https://amzn.to/3IBsvAO" target="_blank" rel="noopener noreferrer">amazon</a>
+	<a href="https://amzn.to/3IBsvAO" target="_blank" rel="noopener noreferrer">amazon store</a>
 	<a href="https://www.royalroad.com/profile/333730" target="_blank" rel="noopener noreferrer"
 		>royal road</a
 	>
