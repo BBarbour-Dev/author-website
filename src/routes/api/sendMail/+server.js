@@ -32,6 +32,7 @@ export async function POST(event) {
 			toSend.push({
 				mailto: email.mailto,
 				html: generateHtmlTemplate({
+					name: email.name,
 					body: md.render(doc.bodyMarkdown),
 					id: email._id,
 					unsubPath: getUnsubPath(doc.template)

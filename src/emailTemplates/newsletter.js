@@ -16,10 +16,10 @@ export async function sendMail({ mailto, subject, html, template }) {
 	console.log('Sending mail...', sentMail);
 }
 
-export function generateHtmlTemplate({ username, body, id, unsubPath }) {
+export function generateHtmlTemplate({ name, body, id, unsubPath }) {
 	const generic = import('./generic.html?raw');
 	return _.template(generic, {
-		username,
+		name,
 		body,
 		id,
 		unsubPath
