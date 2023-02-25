@@ -20,7 +20,7 @@ function getUnsubPath(template) {
 
 export async function POST(event) {
 	try {
-		console.log('sendMail function firing emails...');
+		console.log('Email Request Starting...');
 		const doc = await event.request.json();
 		const toSend = [];
 
@@ -33,6 +33,7 @@ export async function POST(event) {
 			toSend.push({
 				mailto: email.mailto,
 				template: doc.template,
+				subject: doc.subject,
 				html: await generateHtmlTemplate({
 					name: email.name,
 					body: md.render(doc.bodyMarkdown),
@@ -51,11 +52,11 @@ export async function POST(event) {
 			await sendMail({
 				mailto: email.mailto,
 				subject: email.subject,
-				html: email.html,
-				template: email.template
+				html: email.html
 			});
 		}
 
+		console.log('Email request finished.');
 		return json(toSend);
 	} catch (err) {
 		console.error(err);

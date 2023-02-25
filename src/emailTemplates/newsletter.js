@@ -4,16 +4,16 @@ import _ from 'underscore';
 
 const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
-export async function sendMail({ mailto, subject, html, template }) {
+export async function sendMail({ mailto, subject, html }) {
 	const mail = {
-		from: `${template.toLowerCase()}@authorbrianphilip.com`,
+		from: `me@authorbrianphilip.com`,
 		to: mailto,
 		subject,
 		html
 	};
 
-	const sentMail = await mg.messages().send(mail);
-	console.log('Sending mail...', sentMail);
+	await mg.messages().send(mail);
+	console.log(`Sending mail to... ${mailto}`);
 }
 
 export async function generateHtmlTemplate({ name, body, id, unsubPath }) {
@@ -25,6 +25,5 @@ export async function generateHtmlTemplate({ name, body, id, unsubPath }) {
 		id,
 		unsubPath
 	});
-	console.log(typeof rendered, rendered);
 	return rendered;
 }
