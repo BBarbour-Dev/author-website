@@ -18,7 +18,7 @@ export async function sendMail({ mailto, subject, html, template }) {
 
 export function generateHtmlTemplate({ name, body, id, unsubPath }) {
 	const generic = import('./generic.html?raw');
-	console.log(name, body, id, unsubPath);
+	console.log(typeof name, typeof body, typeof id, typeof unsubPath);
 	return _.template(generic, {
 		name,
 		body,
