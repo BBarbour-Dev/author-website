@@ -6,7 +6,7 @@ const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
 export async function sendMail({ mailto, subject, html }) {
 	const mail = {
-		from: `me@authorbrianphilip.com`,
+		from: `Brian Philip <me@authorbrianphilip.com>`,
 		to: mailto,
 		subject,
 		html
