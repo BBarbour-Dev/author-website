@@ -22,6 +22,13 @@
 	--error-background: #d59595;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
 body {
 	background-color: var(--background);
 	color: var(--text);
@@ -61,12 +68,6 @@ nav {
 	border-bottom: 4px solid var(--primary);
 	width: 100%;
 	padding: 1rem;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
 }
 
 .post-body h2 {

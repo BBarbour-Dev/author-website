@@ -1,4 +1,7 @@
 <script>
+	import Shoutbox from '../lib/Shoutbox.svelte';
+	export let data;
+	let { author, shouts } = data;
 </script>
 
 <svelte:head>
@@ -9,12 +12,13 @@
 	<h2>A Progression Fantasy and Sci-Fi author.</h2>
 </div>
 <h3>About Me</h3>
-<p class="about-me">
-	Brian Philip lives in the rime-covered landscape of the North. He's a Software Engineer and
-	work-at-home enthusiast. When he's not wrangling his pet corgi, you can find his nose deep in a
-	book, his mind sculpting worlds and characters from imagination clay, or him bugging his wife
-	about what's for dinner.
-</p>
+<div class="row">
+	<img src={author.avatar} alt="Brian Philip" class="avatar" />
+	<p class="about-me">
+		{author.bio}
+	</p>
+	<Shoutbox {shouts} />
+</div>
 
 <style>
 	.hero {
@@ -30,6 +34,26 @@
 		border-radius: 8px;
 	}
 
+	.row {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	.avatar {
+		flex-basis: 1;
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+	}
+
+	.about-me {
+		flex: 2 1 400px;
+		text-align: justify;
+	}
+
 	h1 {
 		color: var(--text);
 	}
@@ -42,15 +66,11 @@
 	h3 {
 		color: var(--primary);
 		width: 250px;
-		margin: 2rem 0;
+		margin-bottom: 2rem;
 	}
 
 	.posts {
 		margin-bottom: 3rem;
-	}
-
-	.about-me {
-		margin-bottom: 1rem;
 	}
 
 	.right {

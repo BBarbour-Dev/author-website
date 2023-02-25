@@ -17,12 +17,12 @@
 			external: false,
 			action: false
 		},
-		{
-			href: '/press',
-			text: 'Press',
-			external: false,
-			action: false
-		},
+		// {
+		// 	href: '/press',
+		// 	text: 'Press',
+		// 	external: false,
+		// 	action: false
+		// },
 		{
 			href: '/contact',
 			text: 'Contact',
