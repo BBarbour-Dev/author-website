@@ -11,7 +11,7 @@
 
 :root {
 	--background: #609f77;
-	--background-transparent: rgba(96, 159, 119, 0.5);
+	--background-transparent: #609f7780;
 	--text: #fff9ff;
 	--dark-text: #424242;
 	--primary: #292e39;

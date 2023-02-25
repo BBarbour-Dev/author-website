@@ -13,7 +13,8 @@
 	<a href="https://bbarbour.dev">my dev site</a>
 </div>
 <p class="footer-text small">
-	©{year} Brian Philip Author. Site built by <a href="http://bbarbour.dev">bbarbour.dev</a>.
+	©{year} Brian Philip Author. Site built by me. My dev site is at
+	<a href="http://bbarbour.dev">bbarbour.dev</a>.
 </p>
 
 <style>
