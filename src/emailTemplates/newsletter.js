@@ -1,6 +1,6 @@
 import config from '../config/index';
 import mailgun from 'mailgun-js';
-import generic from './generic.html';
+import generic from './generic.html?raw';
 
 const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
