@@ -28,29 +28,30 @@ export async function POST(event) {
 			`*[_type == "emailAddress" && ${doc.template.toLowerCase()} == true]`
 		);
 
-		emails.forEach((email) => {
+		for (let i = 0; i < emails.length; i++) {
+			const email = emails[i];
 			toSend.push({
 				mailto: email.mailto,
-				html: generateHtmlTemplate({
+				html: await generateHtmlTemplate({
 					name: email.name,
 					body: md.render(doc.bodyMarkdown),
 					id: email._id,
 					unsubPath: getUnsubPath(doc.template)
-				}),
-				template: doc.template
+				})
 			});
-		});
+		}
 
 		if (config.ENV === 'dev') {
 			return console.log(toSend);
 		}
 
 		for (let i = 0; i < toSend.length; i++) {
+			const email = toSend[i];
 			await sendMail({
-				mailto: toSend[i].mailto,
-				subject: doc.subject,
-				html: toSend[i].html,
-				template: doc.template
+				mailto: email.mailto,
+				subject: email.subject,
+				html: email.html,
+				template: email.template
 			});
 		}
 
