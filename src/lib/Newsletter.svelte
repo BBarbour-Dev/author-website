@@ -7,6 +7,7 @@
 
 	let showForm = true;
 	hideNewsletterSignUp.subscribe((value) => {
+		console.log(value);
 		showForm = !value;
 	});
 	let newsletterModal = false;

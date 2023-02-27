@@ -6,7 +6,8 @@
 	let showNewsletterButton = true;
 
 	hideNewsletterSignUp.subscribe((value) => {
-		showNewsletterButton = !value;
+		console.log(value);
+		showNewsletterButton = false;
 	});
 
 	let links = [
@@ -37,7 +38,7 @@
 	];
 
 	$: {
-		if (hideNewsletterSignUp) {
+		if (showNewsletterButton) {
 			links = links.filter((link) => {
 				return link.href !== '#newsletter';
 			});
