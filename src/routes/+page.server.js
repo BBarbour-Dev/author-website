@@ -1,12 +1,15 @@
-import { client } from '../config/db';
+import { client, queries } from '../config/db';
+import { shout } from '../actions/shout';
 
 export async function load() {
-	const author = await client.fetch(
-		'*[_type == "author" && name == "Brian Philip"]{..., "avatar": avatar.asset->url}'
-	);
-	const shouts = await client.fetch('*[_type == "shout" && !hidden]{_createdAt, body, name}');
+	const author = await client.fetch(queries.author);
+	const shouts = await client.fetch(queries.shouts);
 	return {
 		author: author[0],
 		shouts
 	};
 }
+
+export const actions = {
+	shout
+};

@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import config from '../config/index';
-import { client } from '../config/db';
+import { client, queries } from '../config/db';
 import { sign, verify } from 'twt';
 
 export async function subscribe({ cookies, request }) {
@@ -8,23 +8,28 @@ export async function subscribe({ cookies, request }) {
 		const data = await request.formData();
 		const name = data.get('name');
 		const mailto = data.get('email');
-		const emailName = mailto.split('@')[0];
-		const _id = sign(emailName, config.TWT_SECRET);
-		await client.createOrReplace({
-			_type: 'emailAddress',
-			_id,
-			name,
-			mailto,
-			newsletter: true,
-			promotions: true
+
+		if (!name || !mailto) {
+			throw new error(400, 'Required fields are name/username and email.');
+		}
+
+		const emailAddressExists = await client.fetch(queries.emailAddress, {
+			mailto
 		});
+		if (!emailAddressExists.length === 0) {
+			await addEmail({
+				name,
+				mailto,
+				newsletter: true,
+				promotions: true
+			});
+		}
+
 		cookies.set('hideNewsletterSignUp', true);
 		return { hideNewsletterSignUp: true };
 	} catch (err) {
 		console.error(err);
-		throw error(500, {
-			message: 'Internal Server Error: Please try again.'
-		});
+		throw error(err.status, err.body.message);
 	}
 }
 

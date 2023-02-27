@@ -60,15 +60,16 @@
 	}
 
 	.nav-right .action-button {
+		font-weight: normal;
 		padding: 2rem;
 		border-radius: 8px;
 		background-color: var(--primary);
 		text-decoration: none;
-		color: var(--background);
+		color: var(--white);
 		cursor: pointer;
 	}
 
 	.action-button:hover {
-		background-color: var(--white);
+		background-color: var(--primary-hover);
 	}
 </style>

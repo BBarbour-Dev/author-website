@@ -1,8 +1,13 @@
 <script>
 	import FullNavigation from './FullNavigation.svelte';
 	import MobileNavigation from './MobileNavigation.svelte';
+	import { hideNewsletterSignUp } from '../store';
 
-	export let hideNewsletterSignUp;
+	let showNewsletterButton = true;
+
+	hideNewsletterSignUp.subscribe((value) => {
+		showNewsletterButton = value;
+	});
 
 	let links = [
 		{
@@ -17,12 +22,6 @@
 			external: false,
 			action: false
 		},
-		// {
-		// 	href: '/press',
-		// 	text: 'Press',
-		// 	external: false,
-		// 	action: false
-		// },
 		{
 			href: '/contact',
 			text: 'Contact',

@@ -17,7 +17,7 @@
 	<p class="about-me">
 		{author.bio}
 	</p>
-	<Shoutbox {shouts} />
+	<Shoutbox bind:shouts />
 </div>
 
 <style>

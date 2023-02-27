@@ -1,13 +1,11 @@
 <script>
 	import Newsletter from './Newsletter.svelte';
 	import SocialLinks from './SocialLinks.svelte';
-
-	export let hideNewsletterSignUp;
 </script>
 
 <footer>
 	<div class="container">
-		<Newsletter bind:hideNewsletterSignUp />
+		<Newsletter />
 		<SocialLinks />
 	</div>
 </footer>

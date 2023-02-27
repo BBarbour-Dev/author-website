@@ -15,6 +15,7 @@
 	--text: #fff9ff;
 	--dark-text: #424242;
 	--primary: #292e39;
+	--primary-hover: #475064;
 	--dark: #13161b;
 	--white: #ffffff;
 	--off-white: #cad0de;
@@ -121,4 +122,12 @@ nav {
 	border-left: 2px solid var(--primary);
 	padding: 0 0 0 2rem;
 	margin: 3rem 0rem 3rem 3rem;
+}
+
+.error {
+	color: rgb(114, 0, 0);
+	background-color: rgb(213, 149, 149);
+	padding: 1rem;
+	margin-bottom: 1rem;
+	text-align: center;
 }

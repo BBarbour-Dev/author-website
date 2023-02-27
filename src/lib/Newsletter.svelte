@@ -2,8 +2,13 @@
 	import { enhance } from '$app/forms';
 	import ModalNewsletter from './modal/ModalNewsletter.svelte';
 	import { browser } from '$app/environment';
+	import { asyncTimeout } from '../utilities/asyncTimeout';
+	import { hideNewsletterSignUp } from '../store';
 
-	export let hideNewsletterSignUp;
+	let showForm = true;
+	hideNewsletterSignUp.subscribe((value) => {
+		showForm = !value;
+	});
 	let newsletterModal = false;
 	let error = '';
 
@@ -16,9 +21,7 @@
 				}
 			} else {
 				error = 'Server error, please try again.';
-				setTimeout(() => {
-					error = '';
-				}, 5000);
+				await asyncTimeout(5000);
 			}
 		};
 	}
@@ -29,7 +32,7 @@
 	}
 </script>
 
-{#if !hideNewsletterSignUp}
+{#if showForm}
 	<div id="newsletter">
 		<p class="footer-text">Join my Newsletter today to get updates!</p>
 		{#if error}
@@ -44,14 +47,14 @@
 				<label for="email">Email*</label>
 				<input type="email" id="email" name="email" required />
 			</div>
-			<div class="form-button">
+			<div class="button-row">
 				<button type="submit">Submit</button>
 			</div>
 		</form>
 	</div>
 {/if}
 {#if newsletterModal}
-	<ModalNewsletter bind:hideNewsletterSignUp on:close-modal-newsletter={closeNewsletterModal} />
+	<ModalNewsletter on:close-modal-newsletter={closeNewsletterModal} />
 {/if}
 
 <style>
@@ -62,14 +65,6 @@
 
 	label {
 		display: block;
-	}
-
-	.error {
-		color: rgb(114, 0, 0);
-		background-color: rgb(213, 149, 149);
-		padding: 1rem;
-		margin-bottom: 1rem;
-		text-align: center;
 	}
 
 	.footer-text {
@@ -101,19 +96,18 @@
 		border: 3px solid var(--off-white);
 	}
 
-	.form-button button {
-		color: var(--background);
+	.button-row button {
+		color: var(--white);
 		background-color: var(--primary);
 		border: none;
 		padding: 1rem;
 		font-size: 1.25rem;
-		font-weight: bold;
 		width: 100%;
 		border-radius: 8px;
 		cursor: pointer;
 	}
 
-	.form-button button:hover {
-		background-color: var(--white);
+	.button-row button:hover {
+		background-color: var(--primary-hover);
 	}
 </style>

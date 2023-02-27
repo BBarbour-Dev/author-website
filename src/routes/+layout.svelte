@@ -1,18 +1,22 @@
 <script>
 	import Navbar from '../lib/Navbar.svelte';
-	import '../styles/global.css';
 	import Footer from '../lib/Footer.svelte';
+	import { hideNewsletterSignUp } from '../store';
+	import '../styles/global.css';
 
 	export let data;
-	let { hideNewsletterSignUp } = data;
+
+	hideNewsletterSignUp.update((value) => {
+		return (value = data.hideNewsletterSignUp);
+	});
 </script>
 
 <main>
-	<Navbar {hideNewsletterSignUp} />
+	<Navbar />
 	<div class="content-wrapper">
-		<slot {hideNewsletterSignUp} />
+		<slot />
 	</div>
-	<Footer bind:hideNewsletterSignUp />
+	<Footer />
 </main>
 
 <style>

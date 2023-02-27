@@ -8,3 +8,9 @@ export const client = createClient({
 	useCdn: config.ENV === 'dev' ? false : true,
 	token: config.SANITY_AUTH_TOKEN
 });
+
+export const queries = {
+	author: '*[_type == "author" && name == "Brian Philip"]{..., "avatar": avatar.asset->url}',
+	shouts: '*[_type == "shout" && !hidden]{_createdAt, body, name} | order(_createdAt desc)',
+	emailAddress: '*[_type == "emailAddress" && mailto == $mailto]'
+};

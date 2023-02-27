@@ -26,7 +26,7 @@
 	}
 
 	.modal {
-		position: absolute;
+		position: fixed;
 		left: 50%;
 		top: 50%;
 		width: calc(100vw - 4rem);
@@ -36,7 +36,7 @@
 		transform: translate(-50%, -50%);
 		padding: 1rem;
 		background-color: var(--text);
-		color: var(--background);
+		color: var(--primary);
 		border-radius: 8px;
 	}
 </style>

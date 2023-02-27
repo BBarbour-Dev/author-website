@@ -43,20 +43,20 @@
 		display: none;
 		z-index: 1;
 		border-bottom: 0;
-		box-shadow: none;
 		position: fixed;
-		bottom: 1%;
-		left: 80%;
+		bottom: 3%;
+		left: 75vw;
 	}
 
 	.hamburger button {
-		height: 4rem;
-		width: 4rem;
-		background-color: var(--background);
-		border: 6px solid var(--primary);
+		height: 5rem;
+		width: 5rem;
+		background-color: var(--primary);
+		border: 6px solid var(--off-white);
 		font-size: 2.25rem;
-		color: var(--primary);
+		color: var(--off-white);
 		border-radius: 50%;
+		box-shadow: 8px, 4px, 4px var(--primary);
 	}
 
 	.drawer {
