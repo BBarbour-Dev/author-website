@@ -32,7 +32,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 0.5rem;
+		gap: 1rem;
 	}
 
 	.social-links a {

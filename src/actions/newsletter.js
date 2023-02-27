@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
+import { verify } from 'twt';
 import config from '../config/index';
 import { client, queries } from '../config/db';
-import { sign, verify } from 'twt';
 
 export async function subscribe({ cookies, request }) {
 	try {
