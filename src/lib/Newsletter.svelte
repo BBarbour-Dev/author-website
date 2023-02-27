@@ -16,19 +16,19 @@
 		return async ({ result }) => {
 			if (result.type !== 'error') {
 				newsletterModal = true;
-				if (browser) {
-					window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-				}
 			} else {
 				error = 'Server error, please try again.';
 				await asyncTimeout(5000);
+				error = '';
 			}
 		};
 	}
 
 	function closeNewsletterModal() {
 		newsletterModal = false;
-		hideNewsletterSignUp = true;
+		hideNewsletterSignUp.update((value) => {
+			value = !value;
+		});
 	}
 </script>
 
