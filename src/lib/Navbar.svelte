@@ -6,7 +6,7 @@
 	let showNewsletterButton = true;
 
 	hideNewsletterSignUp.subscribe((value) => {
-		showNewsletterButton = value;
+		showNewsletterButton = !value;
 	});
 
 	let links = [
