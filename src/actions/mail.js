@@ -1,4 +1,4 @@
-import config from '../config/index';
+import config from '../config';
 import mailgun from 'mailgun-js';
 import _ from 'underscore';
 
@@ -17,7 +17,7 @@ export async function sendMail({ mailto, subject, html }) {
 }
 
 export async function generateHtmlTemplate({ name, body, id, unsubPath }) {
-	const generic = await import('./generic.html?raw');
+	const generic = await import('./emailTemplates/generic.html?raw');
 	const template = _.template(generic.default);
 	const rendered = template({
 		name,

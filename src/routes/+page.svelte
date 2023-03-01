@@ -8,8 +8,7 @@
 	<title>Brian Philip &middot; Home &middot; Progression Fantasy and Sci-Fi Author</title>
 </svelte:head>
 <div class="hero">
-	<h1>I'm Brian Philip.</h1>
-	<h2>A Progression Fantasy and Sci-Fi author.</h2>
+	<h1>Progression Fantasy and Sci-Fi Author.</h1>
 </div>
 <h3>About Me</h3>
 <div class="row">
@@ -23,7 +22,7 @@
 <style>
 	.hero {
 		margin: 3rem 0;
-		background-image: url('/hero/clouds.svg');
+		background-image: url('/hero/signal.svg');
 		background-color: var(--background-transparent);
 		min-height: 16rem;
 		display: flex;

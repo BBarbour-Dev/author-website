@@ -1,6 +1,6 @@
 import { sign } from 'twt';
-import { client } from '../../config/db';
-import config from '../../config';
+import { client } from '../db';
+import config from '../config';
 
 export async function addEmail({ name, mailto, newsletter, promotions }) {
 	const address = mailto.split('@')[0];

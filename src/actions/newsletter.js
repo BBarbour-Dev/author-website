@@ -1,13 +1,13 @@
 import { error } from '@sveltejs/kit';
 import { verify } from 'twt';
-import config from '../config/index';
-import { client, queries } from '../config/db';
+import config from '../config';
+import { client, queries } from '../db';
 
 export async function subscribe({ cookies, request }) {
 	try {
 		const data = await request.formData();
-		const name = data.get('name');
-		const mailto = data.get('email');
+		let name = data.get('name');
+		let mailto = data.get('email');
 
 		if (!name || !mailto) {
 			throw new error(400, 'Required fields are name/username and email.');

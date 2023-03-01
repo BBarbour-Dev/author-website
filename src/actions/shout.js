@@ -1,14 +1,15 @@
 import { error } from '@sveltejs/kit';
-import { client, queries } from '../config/db';
-import { addEmail } from './func/addEmail';
+import { client, queries } from '../db';
+import { addEmail } from '../helpers/addEmail';
 
 export async function shout({ cookies, request }) {
 	try {
 		const data = await request.formData();
+
+		let name = data.get('name');
+		let mailto = data.get('email');
+		let subscribe = data.get('subscribe') && true;
 		let message = data.get('body');
-		const name = data.get('name');
-		const mailto = data.get('email');
-		const subscribe = data.get('subscribe') && true;
 
 		if (!message || !name || !mailto) {
 			throw new error(400, 'Required fields are name/username, email, and message.');

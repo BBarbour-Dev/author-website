@@ -1,8 +1,7 @@
 <script>
 	import { enhance } from '$app/forms';
 	import ModalNewsletter from './modal/ModalNewsletter.svelte';
-	import { browser } from '$app/environment';
-	import { asyncTimeout } from '../utilities/asyncTimeout';
+	import { asyncTimeout } from '../helpers/asyncTimeout';
 	import { hideNewsletterSignUp } from '../store';
 
 	let showForm = true;

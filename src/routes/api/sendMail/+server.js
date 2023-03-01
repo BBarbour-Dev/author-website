@@ -1,8 +1,8 @@
 import { json } from '@sveltejs/kit';
 import MarkdownIt from 'markdown-it';
-import { client } from '../../../config/db';
+import { client } from '../../../db';
 import config from '../../../config';
-import { generateHtmlTemplate, sendMail } from '../../../emailTemplates/newsletter';
+import { generateHtmlTemplate, sendMail } from '../../../actions/mail';
 
 const md = MarkdownIt();
 

@@ -5,7 +5,7 @@
 <nav class={`${$$restProps.class || ''} desktop-nav`}>
 	<div class="home-link">
 		<div>
-			<a href="/">Brian Philip</a>
+			<a href="/">brian_philip</a>
 		</div>
 	</div>
 	<div class="nav-right">
@@ -27,20 +27,26 @@
 		}
 	}
 
+	nav {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 4px solid var(--primary);
+		width: 100%;
+		padding: 1rem;
+	}
+
 	.home-link {
 		display: flex;
-		flex-grow: 1;
+		margin-top: 0.5rem;
 		align-items: center;
 	}
 
 	.home-link a {
 		font-size: 2rem;
-		display: block;
 		text-decoration: none;
 		font-weight: bold;
-		margin: 1rem;
 		text-align: center;
-		font-family: 'Shojumaru';
+		font-family: 'SpecialElite';
 	}
 
 	.nav-right {

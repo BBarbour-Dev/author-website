@@ -1,5 +1,5 @@
 <script>
-	import ModalWrapper from '../elements/ModalWrapper.svelte';
+	import ModalWrapper from './ModalWrapper.svelte';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();

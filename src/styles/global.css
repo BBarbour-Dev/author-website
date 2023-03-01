@@ -1,12 +1,12 @@
 @font-face {
-	font-family: 'Montserrat';
-	src: url('/font/Montserrat-VariableFont_wght.ttf'),
-		url('/font/Montserrat-Italic-VariableFont_wght.ttf');
+	font-family: 'Crimson Pro';
+	src: url('/font/CrimsonPro-VariableFont_wght.ttf'),
+		url('/font/CrimsonPro-Italic-VariableFont_wght.ttf');
 }
 
 @font-face {
-	font-family: 'Shojumaru';
-	src: url('/font/Shojumaru-Regular.ttf');
+	font-family: 'SpecialElite';
+	src: url('/font/SpecialElite-Regular.ttf');
 }
 
 :root {
@@ -33,20 +33,20 @@
 body {
 	background-color: var(--background);
 	color: var(--text);
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-family: 'Crimson Pro', Arial, Helvetica, sans-serif;
 	font-size: 1.25rem;
 }
 
 body h1 {
-	font-size: 2.5rem;
+	font-size: 3rem;
 }
 
 body h2 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 }
 
 body h3 {
-	font-size: 1.75rem;
+	font-size: 2rem;
 }
 
 body p {
@@ -61,14 +61,6 @@ a {
 
 a:hover {
 	color: var(--white);
-}
-
-nav {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 4px solid var(--primary);
-	width: 100%;
-	padding: 1rem;
 }
 
 .post-body h2 {

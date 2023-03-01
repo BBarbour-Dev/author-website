@@ -1,9 +1,9 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
-	import ModalWrapper from '../elements/ModalWrapper.svelte';
-	import { asyncTimeout } from '../../utilities/asyncTimeout';
+	import { asyncTimeout } from '../../helpers/asyncTimeout';
 	import { hideNewsletterSignUp } from '../../store';
+	import ModalWrapper from './ModalWrapper.svelte';
 
 	export let shouts;
 	const dispatch = createEventDispatcher();

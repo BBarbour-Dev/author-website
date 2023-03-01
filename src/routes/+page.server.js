@@ -1,4 +1,4 @@
-import { client, queries } from '../config/db';
+import { client, queries } from '../db';
 import { shout } from '../actions/shout';
 
 export async function load() {

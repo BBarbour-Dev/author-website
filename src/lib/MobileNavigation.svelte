@@ -7,34 +7,35 @@
 	}
 </script>
 
-<div class="hamburger" style={`${drawerOpen ? 'visibility: hidden;' : ''}`}>
-	<button on:click={toggleDrawer}>&#9776;</button>
-</div>
-
-<nav
-	class="mobile-nav"
-	on:click={toggleDrawer}
-	on:keydown={toggleDrawer}
-	style={`${drawerOpen ? 'visibility: visible; width: 350px;' : ''}`}
->
-	{#if drawerOpen}
-		<div class="drawer">
-			<button class="close">&times;</button>
-			<div class="mobile-logo">
-				<span>Brian Philip</span>
-			</div>
-			<div class="link"><a href="/">Home</a></div>
-			{#each links as link}
-				<div class="link">
-					<a
-						href={link.href}
-						target={link.external ? '_blank' : ''}
-						rel={link.external ? 'noopener noreferrer' : ''}>{link.text}</a
-					>
+<nav>
+	<div class="hamburger" style={`${drawerOpen ? 'visibility: hidden;' : ''}`}>
+		<button on:click={toggleDrawer}>&#9776;</button>
+	</div>
+	<div
+		class="mobile-nav"
+		on:click={toggleDrawer}
+		on:keydown={toggleDrawer}
+		style={`${drawerOpen ? 'visibility: visible; width: 350px;' : ''}`}
+	>
+		{#if drawerOpen}
+			<div class="drawer">
+				<button class="close">&times;</button>
+				<div class="mobile-logo">
+					<span>brian_philip</span>
 				</div>
-			{/each}
-		</div>
-	{/if}
+				<div class="link"><a href="/">Home</a></div>
+				{#each links as link}
+					<div class="link">
+						<a
+							href={link.href}
+							target={link.external ? '_blank' : ''}
+							rel={link.external ? 'noopener noreferrer' : ''}>{link.text}</a
+						>
+					</div>
+				{/each}
+			</div>
+		{/if}
+	</div>
 </nav>
 
 <style>
@@ -81,7 +82,7 @@
 		display: block;
 		text-decoration: none;
 		font-weight: bold;
-		font-family: 'Shojumaru';
+		font-family: 'SpecialElite';
 	}
 
 	.link {
