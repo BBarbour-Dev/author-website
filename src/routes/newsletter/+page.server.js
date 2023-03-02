@@ -1,6 +1,6 @@
 import { subscribe, unsubscribe, unsubscribePromotions } from '../../actions/newsletter';
 
-export async function load({ cookies, url }) {
+export async function load({ url }) {
 	const unsubToken = url.search.split('unsubscribe?')[1];
 	const unsubPromotion = url.search.split('unsubscribe/promotions?')[1];
 	if (unsubToken) {
@@ -9,11 +9,9 @@ export async function load({ cookies, url }) {
 	if (unsubPromotion) {
 		await unsubscribePromotions(unsubPromotion);
 	}
-	cookies.delete('hideNewsletterSignUp');
 	return {
 		unsubscribe: unsubToken && true,
-		unsubscribePromotions: unsubPromotion && true,
-		hideNewsletterSignUp: false
+		unsubscribePromotions: unsubPromotion && true
 	};
 }
 

@@ -1,35 +1,32 @@
 <script>
+	import { hideNewsletterSignUp } from '../../store';
+
 	export let data;
-	const { hideNewsletterSignUp, unsubscribe, unsubscribePromotions } = data;
+	const { unsubscribe, unsubscribePromotions } = data;
+
+	let signedUp = false;
+	hideNewsletterSignUp.subscribe((value) => {
+		signedUp = value;
+	});
 </script>
 
 <svelte:head>
 	<title>Brian Philip &middot; Newsletter &middot; Progression Fantasy and Sci-Fi Author</title>
 </svelte:head>
 <div>
-	<h1>Newsletter Signup</h1>
-	{#if hideNewsletterSignUp}
-		<h3>You've already signed up for our newsletter! Thanks again.</h3>
-	{/if}
 	{#if unsubscribe}
-		<h3>You have unsubscribed to the newsletter. Hope to see you again in the future!</h3>
+		<p>You are unsubscribed to the newsletter. Hope to see you again in the future.</p>
+	{:else if unsubscribePromotions}
+		<h3>You are unsubscribed from promotions. Hope to see you again in the future.</h3>
+	{:else if signedUp}
+		<p>You are signed up for our newsletter! Thanks again.</p>
+	{:else}
+		<p>Sign up below.</p>
 	{/if}
-	{#if unsubscribePromotions}
-		<h3>You have unsubscribed from promotions. Hope to see you again in the future!</h3>
-	{/if}
-	<a href="/"><h2>Return Home</h2></a>
 </div>
 
 <style>
-	div {
-		margin-top: 5rem;
-		width: 100%;
+	p {
 		text-align: center;
-		font-size: 1.25rem;
-	}
-
-	div h1,
-	h3 {
-		margin-bottom: 5rem;
 	}
 </style>

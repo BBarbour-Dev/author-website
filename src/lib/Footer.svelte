@@ -13,7 +13,7 @@
 <style>
 	footer {
 		margin-top: 5rem;
-		border-top: 4px solid var(--primary);
+		border-top: 2px solid var(--primary);
 		padding: 1rem;
 		display: flex;
 		width: 100%;

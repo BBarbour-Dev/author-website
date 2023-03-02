@@ -1,8 +1,8 @@
 import { json } from '@sveltejs/kit';
 import MarkdownIt from 'markdown-it';
-import { client } from '../../../db';
+import { client, queries } from '../../../db';
 import config from '../../../config';
-import { generateHtmlTemplate, sendMail } from '../../../actions/mail';
+import { generateHtmlTemplate, sendMail } from '../../../actions/';
 
 const md = MarkdownIt();
 
@@ -24,9 +24,9 @@ export async function POST(event) {
 		const doc = await event.request.json();
 		const toSend = [];
 
-		const emails = await client.fetch(
-			`*[_type == "emailAddress" && ${doc.template.toLowerCase()} == true]`
-		);
+		const emails = await client.fetch(queries.getEmailAddressesForTemplate, {
+			template: doc.template.toLowerCase()
+		});
 
 		for (let i = 0; i < emails.length; i++) {
 			const email = emails[i];

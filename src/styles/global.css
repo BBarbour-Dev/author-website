@@ -11,6 +11,7 @@
 
 :root {
 	--background: #609f77;
+	--highlight: #9F6088;
 	--background-transparent: #609f7780;
 	--text: #fff9ff;
 	--dark-text: #424242;
@@ -63,36 +64,47 @@ a:hover {
 	color: var(--white);
 }
 
-.post-body h2 {
-	margin-top: 1rem;
-	margin-bottom: 2rem;
+button {
+	font-family: inherit;
 }
 
-.post-body p {
-	font-size: 1.25rem;
-	margin-bottom: 1rem;
-	line-height: 2rem;
+.middot {
+	color: var(--primary);
+	font-weight: bold;
+	padding: 0.35rem;
+
+}
+
+.post-body h2, h3, h4 {
+	margin-top: 1rem;
+	margin-bottom: 1.5rem;
 }
 
 .post-body a {
 	text-underline-offset: 0%;
 }
 
+.post-body p {
+	margin-bottom: 1.5rem;
+	text-align: justify;
+}
+
 .post-body hr {
 	border-bottom: 1px solid var(--primary);
 	width: 50%;
-	margin: 2rem auto;
+	margin: 3rem auto;
 }
 
 .post-body pre {
 	border: 1px solid var(--primary);
-	padding: 1rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
+	overflow: auto;
+	padding: 1.5rem;
 }
 
 .post-body code {
-	color: var(--white);
-	background-color: var(--dark);
+	color: var(--text);
+	background-color: var(--background);
 	font-family: 'Courier New', Courier, monospace;
 }
 
@@ -101,13 +113,17 @@ a:hover {
 }
 
 .post-body ul {
-	margin-bottom: 1rem;
-	padding: 0px 4rem;
+	padding-left: 3rem;
+	margin-bottom: 1.5rem;
 }
 
-.post-body ul li {
-	font-size: 1.25rem;
-	line-height: 2rem;
+.post-body ol {
+	padding-left: 3rem;
+	margin-bottom: 1.5rem;
+}
+
+.post-body li {
+	margin-bottom: .75rem;
 }
 
 .post-body blockquote {

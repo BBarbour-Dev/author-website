@@ -1,5 +1,5 @@
 <script>
-	import { formatRelative } from 'date-fns';
+	import { getCapitalizedDateString } from '../helpers/getCapitalizedDateString';
 	import ModalShout from './modal/ModalShout.svelte';
 
 	export let shouts;
@@ -14,14 +14,10 @@
 	function closeModalShout() {
 		shoutModal = false;
 	}
-
-	function formatDate(date) {
-		return formatRelative(new Date(date), new Date());
-	}
 </script>
 
 <div class="shoutbox">
-	<p class="shout-title">Shoutbox 📢</p>
+	<h3 class="shout-title">Shoutbox</h3>
 	{#if error}
 		<p class="error">{error}</p>
 	{/if}
@@ -31,7 +27,7 @@
 				<div class="shout">
 					<p class="shouter">
 						@{shout.name}:
-						<span class="date">{formatDate(shout._createdAt)}</span>
+						<span class="date">{getCapitalizedDateString(shout._createdAt)}</span>
 					</p>
 					<p class="shout-body">{shout.body}</p>
 				</div>
@@ -41,7 +37,7 @@
 		{/if}
 	</div>
 	<div class="button-row">
-		<button on:click={openModalShout}>🤘Leave a shout!🤘</button>
+		<button on:click={openModalShout}>📢 Leave a shout!</button>
 	</div>
 </div>
 {#if shoutModal}
@@ -49,26 +45,26 @@
 {/if}
 
 <style>
+	h3 {
+		color: var(--primary);
+		font-family: 'SpecialElite';
+	}
+
 	.shoutbox {
-		height: 300px;
-		border: 4px solid var(--primary);
-		border-radius: 8px;
-		padding: 0.75rem;
-		flex: 3 1 300px;
+		width: 100%;
 	}
 
 	.shouts {
-		height: 200px;
+		height: 250px;
 		overflow-y: scroll;
 		border: 2px solid var(--primary);
 		border-radius: 8px;
-		margin-bottom: 8px;
+		margin-bottom: 1rem;
 	}
 
 	.shout-title {
 		font-weight: bold;
 		line-height: 1rem;
-		margin-bottom: 0.5rem;
 	}
 
 	.shout {
@@ -78,21 +74,16 @@
 
 	.shouter {
 		font-weight: bold;
-		font-size: 0.85rem;
 		color: var(--primary);
-		line-height: 0.85rem;
 	}
 
 	.shout-body {
-		margin-top: 0.5rem;
 		font-weight: normal;
 		color: var(--text);
-		font-size: 0.85rem;
-		line-height: 1rem;
 	}
 
 	.date {
-		font-size: 0.75rem;
+		font-size: 1rem;
 		font-weight: normal;
 		float: right;
 	}
@@ -105,7 +96,8 @@
 	.button-row button {
 		cursor: pointer;
 		border: none;
-		padding: 8px;
+		padding: 0.5rem;
+		font-size: 1.2rem;
 		width: 100%;
 		color: var(--white);
 		background-color: var(--primary);

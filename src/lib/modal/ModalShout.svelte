@@ -20,6 +20,7 @@
 				error =
 					result.status === 500 ? 'Internal server error. Please try again.' : result.error.message;
 				await asyncTimeout(5000);
+				error = '';
 			}
 		};
 	}
@@ -93,11 +94,11 @@
 		border-radius: 8px;
 		outline: none;
 		font-size: 1rem;
-		border: 1px solid var(--primary);
+		border: 2px solid var(--primary);
 	}
 
 	.form-row input:focus {
-		border: 3px solid var(--background);
+		border: 4px solid var(--background);
 	}
 
 	.button-row {

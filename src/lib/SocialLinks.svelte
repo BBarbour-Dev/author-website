@@ -42,11 +42,6 @@
 	@media screen and (max-width: 720px) {
 		.social-links {
 			flex-direction: column;
-			padding: 0;
-		}
-
-		.social-links a {
-			margin-bottom: 0.5rem;
 		}
 	}
 </style>

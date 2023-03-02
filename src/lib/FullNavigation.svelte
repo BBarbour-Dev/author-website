@@ -30,7 +30,7 @@
 	nav {
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 4px solid var(--primary);
+		border-bottom: 2px solid var(--primary);
 		width: 100%;
 		padding: 1rem;
 	}
@@ -45,29 +45,26 @@
 		font-size: 2rem;
 		text-decoration: none;
 		font-weight: bold;
-		text-align: center;
 		font-family: 'SpecialElite';
 	}
 
 	.nav-right {
 		display: flex;
-		flex-grow: 1;
+		flex-grow: 2;
 		justify-content: right;
 		align-items: center;
+		gap: 1rem;
 	}
 
 	.nav-right a {
-		font-size: 1.25rem;
+		font-size: 1.2rem;
 		font-weight: bold;
-		display: block;
 		text-align: center;
-		padding: 1.1rem;
-		line-height: 0;
 	}
 
 	.nav-right .action-button {
 		font-weight: normal;
-		padding: 2rem;
+		padding: 1rem;
 		border-radius: 8px;
 		background-color: var(--primary);
 		text-decoration: none;

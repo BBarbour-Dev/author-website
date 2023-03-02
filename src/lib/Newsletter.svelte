@@ -26,7 +26,7 @@
 	function closeNewsletterModal() {
 		newsletterModal = false;
 		hideNewsletterSignUp.update((value) => {
-			value = !value;
+			return (value = true);
 		});
 	}
 </script>
@@ -88,11 +88,13 @@
 		border-radius: 8px;
 		outline: none;
 		font-size: 1rem;
-		border: 1px solid var(--white);
+		border: 2px solid var(--white);
+		background-color: var(--primary) !important;
+		color: var(--white);
 	}
 
 	.form-row input:focus {
-		border: 3px solid var(--off-white);
+		border: 4px solid var(--highlight);
 	}
 
 	.button-row button {
@@ -100,10 +102,10 @@
 		background-color: var(--primary);
 		border: none;
 		padding: 1rem;
-		font-size: 1.25rem;
 		width: 100%;
 		border-radius: 8px;
 		cursor: pointer;
+		font-size: 1.2rem;
 	}
 
 	.button-row button:hover {

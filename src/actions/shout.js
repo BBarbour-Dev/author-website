@@ -27,7 +27,6 @@ export async function shout({ cookies, request }) {
 		});
 
 		if (emailAddressExists.length === 0) {
-			console.log('doesnt exist');
 			emailAddressExists = await addEmail({
 				name,
 				mailto,

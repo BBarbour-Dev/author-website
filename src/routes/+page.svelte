@@ -1,7 +1,8 @@
 <script>
 	import Shoutbox from '../lib/Shoutbox.svelte';
+	import Post from '../lib/Post.svelte';
 	export let data;
-	let { author, shouts } = data;
+	let { author, shouts, posts } = data;
 </script>
 
 <svelte:head>
@@ -16,10 +17,45 @@
 	<p class="about-me">
 		{author.bio}
 	</p>
+</div>
+<div class="row">
 	<Shoutbox bind:shouts />
+</div>
+<h3>Blog</h3>
+<div class="row">
+	<div class="posts">
+		{#if posts && posts.length > 0}
+			{#each posts as post}
+				<Post {post} />
+			{/each}
+		{:else}
+			<p>There are no posts.</p>
+		{/if}
+	</div>
+	<a href="/blog" class="view">...View All Posts</a>
 </div>
 
 <style>
+	@media screen and (max-width: 720px) {
+		.hero {
+			margin-top: 1rem;
+		}
+	}
+
+	h1 {
+		color: var(--text);
+	}
+
+	/* h2 {
+		margin-top: 1rem;
+		color: var(--off-white);
+	} */
+
+	h3 {
+		color: var(--primary);
+		font-family: 'SpecialElite';
+	}
+
 	.hero {
 		margin: 3rem 0;
 		background-image: url('/hero/signal.svg');
@@ -29,16 +65,16 @@
 		flex-direction: column;
 		justify-content: center;
 		padding: 1rem;
-		border: 4px solid var(--primary);
+		border: 2px solid var(--primary);
 		border-radius: 8px;
 	}
 
 	.row {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 1.5rem;
 		flex-wrap: wrap;
-		width: 100%;
+		margin-bottom: 3rem;
 	}
 
 	.avatar {
@@ -49,37 +85,15 @@
 	}
 
 	.about-me {
-		flex: 2 1 400px;
+		flex: 1;
 		text-align: justify;
 	}
 
-	h1 {
-		color: var(--text);
-	}
-
-	h2 {
-		margin-top: 1rem;
-		color: var(--off-white);
-	}
-
-	h3 {
-		color: var(--primary);
-		width: 250px;
-		margin-bottom: 2rem;
+	.view {
+		flex: 1;
 	}
 
 	.posts {
-		margin-bottom: 3rem;
-	}
-
-	.right {
-		text-align: right;
-		margin-bottom: 5rem;
-	}
-
-	@media screen and (max-width: 720px) {
-		.hero {
-			margin-top: 1rem;
-		}
+		width: 100%;
 	}
 </style>

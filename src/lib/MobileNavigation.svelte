@@ -53,7 +53,7 @@
 		height: 5rem;
 		width: 5rem;
 		background-color: var(--primary);
-		border: 6px solid var(--off-white);
+		border: 2px solid var(--off-white);
 		font-size: 2.25rem;
 		color: var(--off-white);
 		border-radius: 50%;
