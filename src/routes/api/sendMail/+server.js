@@ -28,6 +28,8 @@ export async function POST(event) {
 			template: doc.template.toLowerCase()
 		});
 
+		console.log(emails);
+
 		for (let i = 0; i < emails.length; i++) {
 			const email = emails[i];
 			toSend.push({
