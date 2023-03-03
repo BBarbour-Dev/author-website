@@ -32,7 +32,7 @@ export async function contact({ cookies, request }) {
 		}
 
 		await sendMail({
-			from: 'contact@authorbrianphilip.com',
+			from: 'My Author Wesbite <contact@authorbrianphilip.com>',
 			mailto: 'me@authorbrianphilip.com',
 			subject: `A new message from the website! ${mailto}`,
 			text: message

@@ -54,9 +54,11 @@ export async function POST(event) {
 		for (let i = 0; i < toSend.length; i++) {
 			const email = toSend[i];
 			await sendMail({
+				from: `Brian Philip <me@authorbrianphilip.com>`,
 				mailto: email.mailto,
 				subject: email.subject,
-				html: email.html
+				html: email.html,
+				address: 'me'
 			});
 		}
 

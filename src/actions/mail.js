@@ -4,17 +4,16 @@ import _ from 'underscore';
 
 const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
-export async function sendMail({ mailto, subject, html, text }) {
+export async function sendMail({ mailto, subject, html, text, from }) {
 	const mail = {
-		from: `Contact Me <contact@authorbrianphilip.com>`,
+		from,
 		to: mailto,
 		subject,
 		text,
-		html: html ? html : null
+		html: html && html
 	};
 
 	const test = await mg.messages().send(mail);
-	console.log(test);
 	console.log(`Sending mail to... ${mailto}`);
 }
 
