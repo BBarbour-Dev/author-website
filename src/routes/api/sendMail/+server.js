@@ -20,7 +20,7 @@ function getUnsubPath(template) {
 
 export async function POST(event) {
 	try {
-		console.log('Email Request Starting...');
+		console.log('Bulk email request starting...');
 		const doc = await event.request.json();
 		const toSend = [];
 
@@ -29,8 +29,6 @@ export async function POST(event) {
 		const emails = await client.fetch(
 			queries.emailAddressesForTemplate(doc.template.toLowerCase())
 		);
-
-		console.log(emails);
 
 		for (let i = 0; i < emails.length; i++) {
 			const email = emails[i];
@@ -62,7 +60,7 @@ export async function POST(event) {
 			});
 		}
 
-		console.log('Email request finished.');
+		console.log('Bulk email request finished.');
 		return json(toSend);
 	} catch (err) {
 		console.error(err);

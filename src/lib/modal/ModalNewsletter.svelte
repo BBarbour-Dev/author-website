@@ -32,8 +32,8 @@
 		width: 50%;
 		padding: 1rem;
 		font-size: 1rem;
-		background-color: var(--primary);
-		color: var(--background);
+		background-color: var(--dark-text);
+		color: var(--text);
 	}
 
 	.button-row button:hover {
