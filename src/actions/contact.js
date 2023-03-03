@@ -32,7 +32,7 @@ export async function contact({ request }) {
 		}
 
 		await sendMail({
-			from: 'Delivery Moogle <contact@authorbrianphilip.com',
+			from: 'Delivery Moogle <contact@authorbrianphilip.com>',
 			mailto: 'me@authorbrianphilip.com',
 			subject: `A new message from the website! ${mailto}`,
 			text: message
