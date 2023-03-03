@@ -86,19 +86,19 @@
 		width: 100%;
 		padding: 10px;
 		border-radius: 8px;
-		outline: none;
 		font-size: 1rem;
-		border: 2px solid var(--white);
-		background-color: var(--primary) !important;
-		color: var(--white);
+		border: none;
+		outline: none;
+		background-color: var(--text);
+		color: var(--background);
 	}
 
-	.form-row input:focus {
-		border: 4px solid var(--highlight);
+	.form-row input:focus-visible {
+		outline: 4px solid var(--highlight);
 	}
 
 	.button-row button {
-		color: var(--white);
+		color: var(--text);
 		background-color: var(--primary);
 		border: none;
 		padding: 1rem;
@@ -106,9 +106,11 @@
 		border-radius: 8px;
 		cursor: pointer;
 		font-size: 1.2rem;
+		font-weight: 500;
 	}
 
 	.button-row button:hover {
+		color: var(--dark-text);
 		background-color: var(--primary-hover);
 	}
 </style>

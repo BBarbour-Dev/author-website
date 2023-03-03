@@ -21,7 +21,7 @@
 				{novel.ku && 'Free On Kindle Unlimited'}
 			</p>
 			<div class="genres">
-				<Tags tags={novel.genres} fontSize=".8" />
+				<Tags tags={novel.genres} fontSize=".8" padding=".5" />
 			</div>
 			<p class="description">{novel.description}</p>
 		</div>

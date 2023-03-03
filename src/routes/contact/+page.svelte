@@ -60,6 +60,10 @@
 		line-height: 3rem;
 	}
 
+	form {
+		width: 100%;
+	}
+
 	label {
 		display: block;
 	}
@@ -79,11 +83,11 @@
 		width: 100%;
 		padding: 10px;
 		border-radius: 8px;
-		outline: none;
 		font-size: 1rem;
-		border: 2px solid var(--white);
-		background-color: var(--primary) !important;
-		color: var(--white);
+		border: none;
+		outline: none;
+		background-color: var(--text);
+		color: var(--background);
 	}
 
 	.form-row textarea {
@@ -91,22 +95,22 @@
 		width: 100%;
 		padding: 10px;
 		border-radius: 8px;
-		outline: none;
 		font-size: 1rem;
-		border: 2px solid var(--white);
-		background-color: var(--primary) !important;
-		color: var(--white);
+		border: none;
+		outline: none;
+		background-color: var(--text);
+		color: var(--background);
 	}
-	f .form-row textarea:focus {
-		border: 4px solid var(--highlight);
+
+	.form-row textarea:focus {
+		outline: 4px solid var(--highlight);
 	}
 
 	.form-row input:focus {
-		border: 4px solid var(--highlight);
+		outline: 4px solid var(--highlight);
 	}
 
 	.button-row {
-		width: 100%;
 		display: flex;
 		justify-content: center;
 	}
@@ -116,12 +120,14 @@
 		border: none;
 		width: 50%;
 		padding: 1rem;
-		font-size: 1rem;
+		font-size: 1.2rem;
 		background-color: var(--primary);
-		color: var(--white);
+		color: var(--text);
+		font-weight: 500;
 	}
 
 	.button-row button:hover {
+		color: var(--dark-text);
 		background-color: var(--primary-hover);
 	}
 </style>

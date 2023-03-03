@@ -94,17 +94,19 @@
 	}
 
 	.button-row button {
-		cursor: pointer;
-		border: none;
-		padding: 0.5rem;
-		font-size: 1.2rem;
-		width: 100%;
-		color: var(--white);
+		width: 50%;
+		color: var(--text);
 		background-color: var(--primary);
+		border: none;
+		padding: 1rem;
 		border-radius: 8px;
+		cursor: pointer;
+		font-size: 1.2rem;
+		font-weight: 500;
 	}
 
 	.button-row button:hover {
+		color: var(--dark-text);
 		background-color: var(--primary-hover);
 	}
 

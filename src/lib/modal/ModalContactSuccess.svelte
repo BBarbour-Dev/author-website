@@ -32,7 +32,7 @@
 		width: 50%;
 		padding: 1rem;
 		font-size: 1rem;
-		background-color: var(--primary);
+		background-color: var(--dark);
 		color: var(--background);
 	}
 </style>

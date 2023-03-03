@@ -36,7 +36,7 @@
 		position: absolute;
 		background-color: var(--primary);
 		border: 1px solid var(--primary);
-		color: var(--white);
+		color: var(--dark-text);
 		box-shadow: 8px, 4px, 4px var(--dark);
 		border-radius: 8px;
 	}

@@ -65,10 +65,6 @@
 		margin-bottom: 1rem;
 	}
 
-	form {
-		width: 100%;
-	}
-
 	label {
 		display: block;
 	}
@@ -90,15 +86,17 @@
 
 	.form-row input {
 		width: 100%;
-		padding: 10px;
+		padding: 1rem;
 		border-radius: 8px;
-		outline: none;
 		font-size: 1rem;
-		border: 2px solid var(--primary);
+		border: none;
+		outline: none;
+		background-color: var(--text);
+		color: var(--background);
 	}
 
 	.form-row input:focus {
-		border: 4px solid var(--background);
+		outline: 4px solid var(--dark);
 	}
 
 	.button-row {
@@ -113,12 +111,12 @@
 		width: 50%;
 		padding: 1rem;
 		font-size: 1rem;
-		background-color: var(--primary);
-		color: var(--white);
+		background-color: var(--dark-text);
+		color: var(--text);
 	}
 
 	.button-row button:hover {
-		background-color: var(--primary-hover);
+		background-color: var(--dark);
 	}
 
 	.subscribe {

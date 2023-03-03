@@ -18,9 +18,6 @@
 		{author.bio}
 	</p>
 </div>
-<div class="row">
-	<Shoutbox bind:shouts />
-</div>
 <h3>Blog</h3>
 <div class="row">
 	<div class="posts">
@@ -33,6 +30,9 @@
 		{/if}
 	</div>
 	<a href="/blog" class="view">...View All Posts</a>
+</div>
+<div class="row">
+	<Shoutbox bind:shouts />
 </div>
 
 <style>

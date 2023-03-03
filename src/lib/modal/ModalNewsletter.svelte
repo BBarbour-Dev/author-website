@@ -35,4 +35,8 @@
 		background-color: var(--primary);
 		color: var(--background);
 	}
+
+	.button-row button:hover {
+		background-color: var(--dark);
+	}
 </style>

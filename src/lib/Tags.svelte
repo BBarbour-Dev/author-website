@@ -19,14 +19,13 @@
 	.tag {
 		display: inline-flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
 	}
 
 	.tag span {
-		font-weight: bold;
-		background-color: var(--primary);
+		margin-right: 0.5rem;
+		font-weight: 500;
+		background-color: var(--highlight);
 		border-radius: 8px;
 		color: var(--white);
-		line-height: 0.8rem;
 	}
 </style>

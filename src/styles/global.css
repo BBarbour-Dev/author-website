@@ -10,16 +10,16 @@
 }
 
 :root {
-	--background: #609f77;
-	--highlight: #9F6088;
-	--background-transparent: #609f7780;
-	--text: #fff9ff;
+	--background: #2E2B31;
+	--highlight: #D9683F;
+	--background-transparent: #2e2b31b3;
+	--text: #E9E9E4;
 	--dark-text: #424242;
-	--primary: #292e39;
-	--primary-hover: #475064;
-	--dark: #13161b;
-	--white: #ffffff;
-	--off-white: #cad0de;
+	--primary: #73B4A3;
+	--primary-hover: #93dfcb;
+	--dark: #825444;
+	--white: #E9E9E4;
+	--off-white: #c4c4bf;
 	--error-text: #720000;
 	--error-background: #d59595;
 }
@@ -43,11 +43,11 @@ body h1 {
 }
 
 body h2 {
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 
 body h3 {
-	font-size: 2rem;
+	font-size: 1.75rem;
 }
 
 body p {
@@ -85,7 +85,7 @@ button {
 }
 
 .post-body p {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 	text-align: justify;
 }
 

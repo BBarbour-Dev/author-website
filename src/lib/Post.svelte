@@ -7,7 +7,7 @@
 <div>
 	<a href={`/blog/${post.slug.current}`}>{post.title}</a>
 	<p>
-		<Tags tags={post.tags} fontSize=".8" />
+		<Tags tags={post.tags} fontSize=".8" padding=".5" />
 		Posted {formatRelativeDate(post.date)} <span class="middot">&middot;</span>
 		{post.readingStats.time} minute read <span class="middot">&middot;</span>
 		{post.readingStats.wordCount} words <span class="middot">&middot;</span>
@@ -21,6 +21,7 @@
 	div {
 		margin-bottom: 1.5rem;
 	}
+
 	a {
 		font-size: 1.5rem;
 		font-weight: bold;

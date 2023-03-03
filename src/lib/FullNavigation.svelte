@@ -68,11 +68,12 @@
 		border-radius: 8px;
 		background-color: var(--primary);
 		text-decoration: none;
-		color: var(--white);
+		color: var(--text);
 		cursor: pointer;
 	}
 
 	.action-button:hover {
+		color: var(--dark-text);
 		background-color: var(--primary-hover);
 	}
 </style>

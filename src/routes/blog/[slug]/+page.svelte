@@ -13,7 +13,7 @@
 	<h1 id="top">{post.title}</h1>
 	<h2>{post.subtitle}</h2>
 </div>
-<Tags tags={post.tags} fontSize="1" />
+<Tags tags={post.tags} fontSize="1" padding=".65" />
 <p class="posted">
 	Posted {formatRelativeDate(post.created)} <span class="middot">&middot;</span>
 	{post.readingStats.time} minute read <span class="middot">&middot;</span>
@@ -34,7 +34,6 @@
 	.hero {
 		margin-top: 3rem;
 		margin-bottom: 1.5rem;
-		background-color: var(--background-transparent);
 		min-height: 16rem;
 		display: flex;
 		flex-direction: column;
@@ -48,6 +47,11 @@
 		line-height: 3rem;
 		width: 75%;
 		text-underline-offset: 0%;
+	}
+
+	h2 {
+		margin-top: 1rem;
+		color: var(--off-white);
 	}
 
 	.posted {

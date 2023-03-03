@@ -8,14 +8,14 @@
 </script>
 
 <nav>
-	<div class="hamburger" style={`${drawerOpen ? 'visibility: hidden;' : ''}`}>
+	<div class="hamburger" style={drawerOpen ? 'visibility: hidden;' : ''}>
 		<button on:click={toggleDrawer}>&#9776;</button>
 	</div>
 	<div
 		class="mobile-nav"
 		on:click={toggleDrawer}
 		on:keydown={toggleDrawer}
-		style={`${drawerOpen ? 'visibility: visible; width: 350px;' : ''}`}
+		style={drawerOpen ? 'visibility: visible; width: 350px;' : ''}
 	>
 		{#if drawerOpen}
 			<div class="drawer">
@@ -52,12 +52,16 @@
 	.hamburger button {
 		height: 5rem;
 		width: 5rem;
-		background-color: var(--primary);
-		border: 2px solid var(--off-white);
+		background-color: var(--highlight);
+		border: none;
 		font-size: 2.25rem;
-		color: var(--off-white);
+		color: var(--background);
 		border-radius: 50%;
 		box-shadow: 8px, 4px, 4px var(--primary);
+	}
+
+	.hamburger button:hover {
+		color: var(--white);
 	}
 
 	.drawer {
@@ -77,7 +81,7 @@
 	.mobile-logo span {
 		font-size: 1.5rem;
 		text-align: center;
-		color: var(--text);
+		color: var(--background);
 		letter-spacing: 2px;
 		display: block;
 		text-decoration: none;
@@ -92,12 +96,12 @@
 	.link a {
 		text-align: center;
 		font-size: 1.25rem;
-		color: var(--text);
+		color: var(--background);
 		display: block;
 	}
 
 	.link a:hover {
-		color: var(--background);
+		color: var(--white);
 	}
 
 	.close {
@@ -108,11 +112,11 @@
 		margin-left: 50px;
 		border: none;
 		background-color: transparent;
-		color: var(--text);
+		color: var(--dark-text);
 	}
 
 	.close:hover {
-		color: var(--background);
+		color: var(--white);
 	}
 
 	.mobile-nav {
@@ -124,7 +128,7 @@
 		z-index: 1;
 		bottom: 0;
 		right: 0;
-		background-color: var(--primary);
+		background-color: var(--highlight);
 		border-radius: 12px 0 0 0;
 		overflow-x: hidden;
 		transition: 0.3s;
