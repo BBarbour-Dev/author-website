@@ -19,5 +19,5 @@ export const queries = {
 		'*[_type == "post" && hidden == false]{_createdAt, slug, tag, title, views, bodyMarkdown } | order(_createdAt desc)',
 	novels: '*[_type == "novel"]{...,"cover":cover.asset->url}',
 	postBySlug: '*[_type == "post" && slug.current == $slug && hidden == false]',
-	emailAddressesForTemplate: '*[_type == "emailAddress" && $template == true]'
+	emailAddressesForTemplate: (template) => `*[_type == "emailAddress" && ${template}]`
 };
