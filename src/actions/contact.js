@@ -7,7 +7,7 @@ import { addEmail } from '../helpers/addEmail';
 
 const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
-export async function contact({ cookies, request }) {
+export async function contact({ request }) {
 	try {
 		const data = await request.formData();
 		let name = data.get('name');
@@ -32,7 +32,7 @@ export async function contact({ cookies, request }) {
 		}
 
 		await sendMail({
-			from: mailto,
+			from: 'Delivery Moogle <contact@authorbrianphilip.com',
 			mailto: 'me@authorbrianphilip.com',
 			subject: `A new message from the website! ${mailto}`,
 			text: message
