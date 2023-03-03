@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 import MarkdownIt from 'markdown-it';
 import { client, queries } from '../../../db';
 import config from '../../../config';
-import { generateHtmlTemplate, sendMail } from '../../../actions/';
+import { generateHtmlTemplate, sendMail } from '../../../actions/mail';
 
 const md = MarkdownIt();
 
