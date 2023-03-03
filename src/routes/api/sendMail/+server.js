@@ -24,6 +24,8 @@ export async function POST(event) {
 		const doc = await event.request.json();
 		const toSend = [];
 
+		console.log(doc.template);
+
 		const emails = await client.fetch(queries.getEmailAddressesForTemplate, {
 			template: doc.template.toLowerCase()
 		});
