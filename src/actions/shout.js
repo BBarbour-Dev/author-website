@@ -23,8 +23,7 @@ export async function shout({ request }) {
 
 		const emailAddressExists = await verifyOrAddEmailAddress({
 			name,
-			mailto,
-			subscribe
+			mailto
 		});
 
 		const newShout = await client.create({
@@ -39,13 +38,15 @@ export async function shout({ request }) {
 
 		const shouts = await client.fetch(queries.shouts);
 
-		shouts.unshift({
-			_createdAt: newShout._createdAt,
-			body: newShout.body,
-			name: newShout.name
-		});
+		if (config.ENV === 'prod') {
+			shouts.unshift({
+				_createdAt: newShout._createdAt,
+				body: newShout.body,
+				name: newShout.name
+			});
+		}
 
-		return { hideNewsletterSignUp: subscribe, shouts };
+		return { shouts };
 	} catch (err) {
 		console.error(err);
 		throw error(err.status, err.body.message);

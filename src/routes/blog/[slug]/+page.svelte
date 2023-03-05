@@ -38,9 +38,11 @@
 			{#if comments}
 				{#each comments as comment}
 					<Comment {comment} postId={post.postId} bind:comments>
-						{#each comment.list as replyComment}
-							<Comment comment={replyComment} postId={post.postId} parent={false} />
-						{/each}
+						{#if comment.list}
+							{#each comment.list as replyComment}
+								<Comment comment={replyComment} postId={post.postId} parent={false} />
+							{/each}
+						{/if}
 					</Comment>
 				{/each}
 			{:else}

@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="comment" style={!parent ? 'margin-left: 3rem;' : ''}>
+<div class="comment" style={!parent ? 'margin-left: 6%;' : ''}>
 	<p class="commenter">
 		{comment.name} said:
 		<span class="date">{getCapitalizedDateString(comment._createdAt)}</span>
