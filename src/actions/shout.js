@@ -3,7 +3,7 @@ import { client, queries } from '../db';
 import { verifyOrAddEmailAddress } from '../helpers/addEmail';
 
 export async function shout({ cookies, request }) {
-	console.log(called);
+	console.log('called');
 	try {
 		const data = await request.formData();
 
