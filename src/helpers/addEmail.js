@@ -27,7 +27,10 @@ export async function verifyOrAddEmailAddress({ name, mailto, subscribe }) {
 			newsletter: subscribe,
 			promotions: subscribe
 		});
+	} else {
+		emailAddressExists = emailAddressExists[0];
+		emailAddressExists.name = name;
 	}
 
-	return Array.isArray(emailAddressExists) ? emailAddressExists[0] : emailAddressExists;
+	return emailAddressExists;
 }
