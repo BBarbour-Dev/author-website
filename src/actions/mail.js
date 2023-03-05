@@ -14,7 +14,6 @@ export async function sendMail({ mailto, subject, html, text, from }) {
 	};
 
 	const test = await mg.messages().send(mail);
-	console.log(`Sending mail to... ${mailto}`);
 }
 
 export async function generateHtmlTemplate({ name, body, id, unsubPath }) {

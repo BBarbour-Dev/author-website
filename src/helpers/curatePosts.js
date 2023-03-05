@@ -16,7 +16,6 @@ export function curatePosts(posts) {
 	return posts.map((post) => {
 		const readingStats = getReadingStats(post.bodyMarkdown);
 		const htmlBody = md.render(post.bodyMarkdown);
-		console.log(post._createdAt);
 		return {
 			slug: post.slug.current,
 			created: post._createdAt,

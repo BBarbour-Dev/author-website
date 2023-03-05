@@ -47,7 +47,7 @@ export async function comment({ request }) {
 			comments
 		};
 	} catch (err) {
-		console.log(err);
+		console.error(err);
 		throw error(500, 'server error');
 	}
 }

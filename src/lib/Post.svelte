@@ -2,7 +2,6 @@
 	import { formatRelativeDate } from '../helpers/formatRelativeDate';
 	import Tags from '../lib/Tags.svelte';
 	export let post;
-	console.log('Called');
 </script>
 
 <div>
