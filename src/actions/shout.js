@@ -2,14 +2,12 @@ import { error } from '@sveltejs/kit';
 import { client, queries } from '../db';
 import { verifyOrAddEmailAddress } from '../helpers/addEmail';
 
-export async function shout({ cookies, request }) {
-	console.log('called');
+export async function shout({ request }) {
 	try {
 		const data = await request.formData();
 
 		const name = data.get('name');
 		const mailto = data.get('email');
-		const subscribe = data.get('subscribe') ? true : false;
 		const body = data.get('body');
 
 		if (!body || !name || !mailto) {
@@ -39,8 +37,6 @@ export async function shout({ cookies, request }) {
 			hidden: false
 		});
 
-		console.log('newShout', newShout);
-
 		const shouts = await client.fetch(queries.shouts);
 
 		shouts.unshift({
@@ -48,10 +44,6 @@ export async function shout({ cookies, request }) {
 			body: newShout.body,
 			name: newShout.name
 		});
-
-		if (subscribe) {
-			cookies.set('hideNewsletterSignUp', true);
-		}
 
 		return { hideNewsletterSignUp: subscribe, shouts };
 	} catch (err) {

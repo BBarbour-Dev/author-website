@@ -24,7 +24,6 @@
 		return async ({ result, update }) => {
 			if (result.type !== 'error') {
 				comments = result.data.comments;
-				console.log(comments);
 				fields = false;
 				isLoading = false;
 				update();

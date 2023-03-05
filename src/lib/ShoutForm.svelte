@@ -18,7 +18,6 @@
 	async function handleForm(form) {
 		isLoading = true;
 		return async ({ result, update }) => {
-			console.log('form callback', result);
 			if (result.type !== 'error') {
 				shouts = result.data.shouts;
 				fields = false;

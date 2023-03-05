@@ -40,9 +40,17 @@ export async function comment({ request }) {
 			};
 		}
 
-		await client.create(comment);
+		const newComment = await client.create(comment);
 
 		const comments = await getCommentsByPostId(postId);
+
+		comments.unshift({
+			_createdAt: newComment._createdAt,
+			name: newComment.name,
+			_id: newComment._id,
+			body: newComment.body
+		});
+
 		return {
 			comments
 		};
