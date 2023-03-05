@@ -43,7 +43,11 @@ export async function shout({ cookies, request }) {
 
 		const shouts = await client.fetch(queries.shouts);
 
-		console.log('shouts', shouts);
+		shouts.unshift({
+			_createdAt: newShout._createdAt,
+			body: newShout.body,
+			name: newShout.name
+		});
 
 		if (subscribe) {
 			cookies.set('hideNewsletterSignUp', true);
