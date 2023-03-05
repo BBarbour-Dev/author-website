@@ -16,7 +16,8 @@ export async function subscribe({ cookies, request }) {
 
 		await verifyOrAddEmailAddress({
 			name,
-			mailto
+			mailto,
+			subscribe: true
 		});
 
 		cookies.set('hideNewsletterSignUp', true);
