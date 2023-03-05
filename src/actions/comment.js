@@ -47,12 +47,12 @@ export async function comment({ request }) {
 
 		if (config.ENV === 'prod') {
 			if (!commentId) {
-				// comments.unshift({
-				// 	_createdAt: newComment._createdAt,
-				// 	name: emailAddressExists.name,
-				// 	_id: newComment._id,
-				// 	body: newComment.body
-				// });
+				comments.unshift({
+					_createdAt: newComment._createdAt,
+					name: emailAddressExists.name,
+					_id: newComment._id,
+					body: newComment.body
+				});
 			} else {
 				comments.map((comment) => {
 					if (comment._id === commentId) {
