@@ -3,6 +3,7 @@ import { client, queries } from '../db';
 import { verifyOrAddEmailAddress } from '../helpers/addEmail';
 
 export async function shout({ cookies, request }) {
+	console.log(called);
 	try {
 		const data = await request.formData();
 
@@ -42,7 +43,7 @@ export async function shout({ cookies, request }) {
 
 		const shouts = await client.fetch(queries.shouts);
 
-		console.log('shouts');
+		console.log('shouts', shouts);
 
 		if (subscribe) {
 			cookies.set('hideNewsletterSignUp', true);
