@@ -38,14 +38,6 @@ export async function shout({ request }) {
 
 		const shouts = await client.fetch(queries.shouts);
 
-		if (config.ENV === 'prod') {
-			shouts.unshift({
-				_createdAt: newShout._createdAt,
-				body: newShout.body,
-				name: newShout.name
-			});
-		}
-
 		return { shouts };
 	} catch (err) {
 		console.error(err);

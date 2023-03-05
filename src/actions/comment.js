@@ -41,32 +41,9 @@ export async function comment({ request }) {
 			};
 		}
 
-		const newComment = await client.create(comment);
+		await client.create(comment);
 
 		const comments = await getCommentsByPostId(postId);
-
-		if (config.ENV === 'prod') {
-			if (!commentId) {
-				comments.unshift({
-					_createdAt: newComment._createdAt,
-					name: emailAddressExists.name,
-					_id: newComment._id,
-					body: newComment.body
-				});
-			} else {
-				comments.map((comment) => {
-					if (comment._id === commentId) {
-						comment.list.unshift({
-							_createdAt: newComment._createdAt,
-							name: emailAddressExists.name,
-							_id: newComment._id,
-							body: newComment.body
-						});
-					}
-					return comment;
-				});
-			}
-		}
 
 		return {
 			comments
