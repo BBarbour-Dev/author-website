@@ -28,7 +28,7 @@ export async function shout({ cookies, request }) {
 			subscribe
 		});
 
-		await client.create({
+		const newShout = await client.create({
 			_type: 'shout',
 			name,
 			emailAddress: {
@@ -38,7 +38,11 @@ export async function shout({ cookies, request }) {
 			hidden: false
 		});
 
+		console.log('newShout', newShout);
+
 		const shouts = await client.fetch(queries.shouts);
+
+		console.log('shouts');
 
 		if (subscribe) {
 			cookies.set('hideNewsletterSignUp', true);
