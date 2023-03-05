@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit';
 import { verify } from 'twt';
 import config from '../config';
 import { client } from '../db';
+import { verifyOrAddEmailAddress } from '../helpers/addEmail';
 
 export async function subscribe({ cookies, request }) {
 	try {

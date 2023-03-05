@@ -1,6 +1,7 @@
 import { client, queries } from '../db';
 
 async function getCommentsById({ postId, commentId }) {
+	console.log(postId);
 	let comments = [];
 	let commentNum = 0;
 
@@ -32,6 +33,7 @@ async function getCommentNum(postId) {
 export async function getCommentsForPosts(posts) {
 	const postPromises = posts.map(async (post) => {
 		const parentComments = await getCommentsById({ postId: post._id });
+		console.log(parentComments);
 		const { commentNum } = parentComments;
 		const parentAndChildCommentsPromises = parentComments.list.map(async (comment) => {
 			const replies = await getCommentsById({ commentId: comment._id });

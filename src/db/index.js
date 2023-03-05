@@ -21,7 +21,7 @@ export const queries = {
 	novels: '*[_type == "novel"]{...,"cover":cover.asset->url}',
 	postBySlug: '*[_type == "post" && slug.current == $slug && hidden == false]',
 	commentsByPost:
-		'*[_type == "comment" && post._ref == $postId] { _id, body, _createdAt, "name": emailAddress->name}',
+		'*[_type == "comment" && post._ref == $postId && parentComment._ref == null] { _id, body, _createdAt, "name": emailAddress->name} | order(_createdAt desc)',
 	commentNumByPost: 'count(*[_type == "comment" && post._ref == $postId])',
 	repliesByComment:
 		'*[_type == "comment" && parentComment._ref == $commentId] { _id, body, _createdAt, "name": emailAddress->name} | order(_createdAt desc)'
