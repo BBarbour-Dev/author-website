@@ -1,41 +1,30 @@
 import { error } from '@sveltejs/kit';
-import MarkdownIt from 'markdown-it';
+import { comment } from '../../../actions/comment';
 import { client, queries } from '../../../db';
-import { getReadingStats } from '../../../helpers/getReadingStats';
-
-const md = MarkdownIt();
+import { getCommentsForPosts } from '../../../helpers/getComments';
+import { curatePosts } from '../../../helpers/curatePosts';
 
 export async function load({ params }) {
 	try {
 		const { slug } = params;
-		const query = await client.fetch(queries.postBySlug, {
+		let posts = await client.fetch(queries.postBySlug, {
 			slug
 		});
 
-		const post = query[0];
-
-		await client.patch(post._id).inc({ views: 1 }).commit();
-
-		const body = md.render(post.bodyMarkdown);
-		const readingStats = getReadingStats(post.bodyMarkdown);
-		const tags = post.tag ? [post.tag] : [];
-
+		posts = await getCommentsForPosts(posts);
+		posts = await curatePosts(posts);
+		const post = posts[0];
+		post.views = post.views + 1;
+		await client.patch(post.postId).inc({ views: 1 }).commit();
 		return {
-			post: {
-				title: post.title,
-				subtitle: post.subtitle,
-				created: post._createdAt,
-				heroImage: post.heroImage,
-				tags,
-				body,
-				readingStats,
-				commentNum: 0,
-				coments: [],
-				views: post.views + 1
-			}
+			post
 		};
 	} catch (err) {
 		console.error(err);
-		throw error(err.statusCode);
+		throw error(500);
 	}
 }
+
+export const actions = {
+	comment
+};

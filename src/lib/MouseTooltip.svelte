@@ -32,12 +32,10 @@
 <style>
 	.tooltip {
 		padding: 0.5rem;
-		font-size: 0.8rem;
+		font-size: 1rem;
 		position: absolute;
-		background-color: var(--primary);
-		border: 1px solid var(--primary);
-		color: var(--dark-text);
+		background-color: var(--highlight);
 		box-shadow: 8px, 4px, 4px var(--dark);
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 	}
 </style>

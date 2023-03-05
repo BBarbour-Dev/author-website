@@ -65,7 +65,7 @@
 	.nav-right .action-button {
 		font-weight: normal;
 		padding: 1rem;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		background-color: var(--primary);
 		text-decoration: none;
 		color: var(--text);

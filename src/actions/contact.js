@@ -1,41 +1,32 @@
 import { error } from '@sveltejs/kit';
 import mailgun from 'mailgun-js';
 import config from '../config';
-import { client, queries } from '../db';
 import { sendMail } from '../actions/mail';
-import { addEmail } from '../helpers/addEmail';
+import { verifyOrAddEmailAddress } from '../helpers/addEmail';
 
 const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
 export async function contact({ request }) {
 	try {
 		const data = await request.formData();
-		let name = data.get('name');
-		let mailto = data.get('email');
-		let message = data.get('body');
+		const name = data.get('name');
+		const mailto = data.get('email');
+		const body = data.get('body');
 
-		if (!message || !name || !mailto) {
+		if (!body || !name || !mailto) {
 			throw new error(400, 'Required fields are name/username, email, and message.');
 		}
 
-		let emailAddressExists = await client.fetch(queries.emailAddress, {
+		await verifyOrAddEmailAddress({
+			name,
 			mailto
 		});
-
-		if (emailAddressExists.length === 0) {
-			emailAddressExists = await addEmail({
-				name,
-				mailto,
-				newsletter: true,
-				promotions: true
-			});
-		}
 
 		await sendMail({
 			from: 'Delivery Moogle <contact@authorbrianphilip.com>',
 			mailto: 'me@authorbrianphilip.com',
 			subject: `A new message from the website! ${mailto}`,
-			text: message
+			text: body
 		});
 
 		return 'sucess';

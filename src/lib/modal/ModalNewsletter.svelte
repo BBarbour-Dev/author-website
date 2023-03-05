@@ -28,15 +28,15 @@
 	}
 
 	.button-row button {
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		width: 50%;
 		padding: 1rem;
 		font-size: 1rem;
-		background-color: var(--dark-text);
+		background-color: var(--background);
 		color: var(--text);
 	}
 
 	.button-row button:hover {
-		background-color: var(--dark);
+		background-color: var(--dark-text);
 	}
 </style>

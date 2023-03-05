@@ -1,19 +1,10 @@
 <script>
 	import { getCapitalizedDateString } from '../helpers/getCapitalizedDateString';
-	import ModalShout from './modal/ModalShout.svelte';
+	import ShoutForm from './ShoutForm.svelte';
 
 	export let shouts;
 
-	let shoutModal = false;
 	let error = '';
-
-	function openModalShout() {
-		shoutModal = true;
-	}
-
-	function closeModalShout() {
-		shoutModal = false;
-	}
 </script>
 
 <div class="shoutbox">
@@ -36,13 +27,8 @@
 			<p class="none">No shouts. Be the first!</p>
 		{/if}
 	</div>
-	<div class="button-row">
-		<button on:click={openModalShout}>📢 Leave a shout!</button>
-	</div>
+	<ShoutForm bind:shouts />
 </div>
-{#if shoutModal}
-	<ModalShout on:close-modal-shout={closeModalShout} bind:shouts />
-{/if}
 
 <style>
 	h3 {
@@ -58,13 +44,12 @@
 		height: 250px;
 		overflow-y: scroll;
 		border: 2px solid var(--primary);
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		margin-bottom: 1rem;
 	}
 
 	.shout-title {
 		font-weight: bold;
-		line-height: 1rem;
 	}
 
 	.shout {
@@ -99,7 +84,7 @@
 		background-color: var(--primary);
 		border: none;
 		padding: 1rem;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		cursor: pointer;
 		font-size: 1.2rem;
 		font-weight: 500;

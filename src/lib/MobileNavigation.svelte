@@ -46,7 +46,7 @@
 		border-bottom: 0;
 		position: fixed;
 		bottom: 3%;
-		left: 75vw;
+		left: 80vw;
 	}
 
 	.hamburger button {
@@ -69,7 +69,10 @@
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-end;
+		padding-bottom: 6rem;
+		align-items: center;
+		gap: 0.5rem;
 		overflow: hidden;
 		transition: 0.3s;
 	}
@@ -89,30 +92,32 @@
 		font-family: 'SpecialElite';
 	}
 
-	.link {
-		margin-bottom: 0.5rem;
-	}
-
 	.link a {
+		width: 150px;
 		text-align: center;
-		font-size: 1.25rem;
-		color: var(--background);
+		font-size: 1.5rem;
+		color: var(--text);
 		display: block;
+		text-underline-offset: 0%;
+		text-decoration: none;
+		padding: 0.75rem;
+		background-color: var(--background);
+		border-radius: var(--border-radius);
 	}
 
 	.link a:hover {
-		color: var(--white);
+		background-color: var(--dark-text);
 	}
 
 	.close {
 		position: absolute;
 		bottom: 0;
 		right: 25px;
-		font-size: 2.25rem;
+		font-size: 4rem;
 		margin-left: 50px;
 		border: none;
 		background-color: transparent;
-		color: var(--dark-text);
+		color: var(--background);
 	}
 
 	.close:hover {
@@ -122,14 +127,14 @@
 	.mobile-nav {
 		display: none;
 		visibility: hidden;
-		height: 350px;
+		height: 100vh;
 		width: 0%;
 		position: fixed;
 		z-index: 1;
 		bottom: 0;
 		right: 0;
 		background-color: var(--highlight);
-		border-radius: 12px 0 0 0;
+		border-radius: 8px 0 0 0;
 		overflow-x: hidden;
 		transition: 0.3s;
 	}

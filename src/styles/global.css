@@ -22,6 +22,7 @@
 	--off-white: #c4c4bf;
 	--error-text: #720000;
 	--error-background: #d59595;
+	--border-radius: 4px;
 }
 
 * {
@@ -137,5 +138,7 @@ button {
 	background-color: rgb(213, 149, 149);
 	padding: 1rem;
 	margin-bottom: 1rem;
-	text-align: center;
+	width: 100%;
+	text-align: center !important;
+	border-radius: var(--border-radius);
 }

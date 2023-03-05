@@ -2,13 +2,14 @@
 	import { formatRelativeDate } from '../helpers/formatRelativeDate';
 	import Tags from '../lib/Tags.svelte';
 	export let post;
+	console.log('Called');
 </script>
 
 <div>
-	<a href={`/blog/${post.slug.current}`}>{post.title}</a>
+	<a href={`/blog/${post.slug}`}>{post.title}</a>
 	<p>
 		<Tags tags={post.tags} fontSize=".8" padding=".5" />
-		Posted {formatRelativeDate(post.date)} <span class="middot">&middot;</span>
+		Posted {formatRelativeDate(post.created)} <span class="middot">&middot;</span>
 		{post.readingStats.time} minute read <span class="middot">&middot;</span>
 		{post.readingStats.wordCount} words <span class="middot">&middot;</span>
 		{post.commentNum}

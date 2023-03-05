@@ -8,6 +8,11 @@
 	export let shouts;
 	const dispatch = createEventDispatcher();
 
+	let showNewsletterSignUp = false;
+	hideNewsletterSignUp.subscribe((value) => {
+		showNewsletterSignUp = !value;
+	});
+
 	let error = '';
 
 	async function handleForm(form) {
@@ -44,16 +49,18 @@
 			<label for="body">Message* (Max 200 characters)</label>
 			<input type="text" id="body" name="body" maxlength="200" required />
 		</div>
-		<div class="form-row-check">
-			<label for="subscribe" class="subscribe">Subscribe to the newsletter?</label><input
-				class="newsletter-check"
-				type="checkbox"
-				name="subscribe"
-				id="subscribe"
-				value="subscribe"
-				checked
-			/>
-		</div>
+		{#if showNewsletterSignUp}
+			<div class="form-row-check">
+				<label for="subscribe" class="subscribe">Subscribe to the newsletter?</label><input
+					class="newsletter-check"
+					type="checkbox"
+					name="subscribe"
+					id="subscribe"
+					value="subscribe"
+					checked
+				/>
+			</div>
+		{/if}
 		<div class="button-row"><button type="submit">Submit</button></div>
 	</form>
 </ModalWrapper>
@@ -87,7 +94,7 @@
 	.form-row input {
 		width: 100%;
 		padding: 1rem;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		font-size: 1rem;
 		border: none;
 		outline: none;
@@ -106,17 +113,17 @@
 	}
 
 	.button-row button {
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		border: none;
 		width: 50%;
 		padding: 1rem;
 		font-size: 1rem;
-		background-color: var(--dark-text);
+		background-color: var(--background);
 		color: var(--text);
 	}
 
 	.button-row button:hover {
-		background-color: var(--dark);
+		background-color: var(--dark-text);
 	}
 
 	.subscribe {

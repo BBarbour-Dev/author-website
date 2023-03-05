@@ -25,7 +25,7 @@
 		margin-right: 0.5rem;
 		font-weight: 500;
 		background-color: var(--highlight);
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		color: var(--white);
 	}
 </style>

@@ -39,7 +39,7 @@
 		{/if}
 		<form method="POST" action="/newsletter?/subscribe" use:enhance={handleForm}>
 			<div class="form-row">
-				<label for="name">Name/Username*</label>
+				<label for="name">Display Name</label>
 				<input type="text" id="name" name="name" required />
 			</div>
 			<div class="form-row">
@@ -85,7 +85,7 @@
 	.form-row input {
 		width: 100%;
 		padding: 10px;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		font-size: 1rem;
 		border: none;
 		outline: none;
@@ -103,7 +103,7 @@
 		border: none;
 		padding: 1rem;
 		width: 100%;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		cursor: pointer;
 		font-size: 1.2rem;
 		font-weight: 500;

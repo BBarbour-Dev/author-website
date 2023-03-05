@@ -1,17 +1,19 @@
 import { client, queries } from '../db';
 import { curatePosts } from '../helpers/curatePosts';
 import { shout } from '../actions/shout';
+import { getCommentNumForPosts } from '../helpers/getComments';
 
 export async function load() {
-	const author = await client.fetch(queries.author);
 	const shouts = await client.fetch(queries.shouts);
-	const posts = await client.fetch(queries.lastFivePosts);
-
-	const curatedPosts = curatePosts(posts);
+	let posts = await client.fetch(queries.lastFivePosts);
+	let author = await client.fetch(queries.author);
+	posts = await getCommentNumForPosts(posts);
+	posts = curatePosts(posts);
+	author = author[0];
 	return {
-		author: author[0],
+		author,
 		shouts,
-		posts: curatedPosts
+		posts
 	};
 }
 

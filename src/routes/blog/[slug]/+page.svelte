@@ -1,9 +1,13 @@
 <script>
-	import { formatRelativeDate } from '../../../helpers/formatRelativeDate';
 	import Tags from '../../../lib/Tags.svelte';
+	import Comment from '../../../lib/Comment.svelte';
+	import CommentForm from '../../../lib/CommentForm.svelte';
+	import { formatRelativeDate } from '../../../helpers/formatRelativeDate';
+
 	export let data;
 
 	let { post } = data;
+	let { comments } = post;
 </script>
 
 <svelte:head>
@@ -24,6 +28,26 @@
 </p>
 <article class="post-body">
 	{@html post.body}
+	<hr />
+	<section class="comments">
+		<h3>Comments</h3>
+		<div class="container">
+			<CommentForm postId={post.postId} bind:comments />
+		</div>
+		<div class="container">
+			{#if comments}
+				{#each comments as comment}
+					<Comment {comment} postId={post.postId} bind:comments>
+						{#each comment.list as replyComment}
+							<Comment comment={replyComment} postId={post.postId} parent={false} />
+						{/each}
+					</Comment>
+				{/each}
+			{:else}
+				<p>There are no comments. Be the first!</p>
+			{/if}
+		</div>
+	</section>
 	<div class="links">
 		<a href="#top">Return to Top</a> <span class="middot">&middot;</span>
 		<a href="/blog">Return To Blog</a>
@@ -40,7 +64,7 @@
 		justify-content: center;
 		padding: 1rem;
 		border: 2px solid var(--primary);
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 	}
 
 	h1 {
@@ -50,8 +74,19 @@
 	}
 
 	h2 {
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 		color: var(--off-white);
+	}
+
+	.comments h3 {
+		font-family: 'SpecialElite';
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.posted {
@@ -59,7 +94,7 @@
 	}
 
 	.links {
-		margin-top: 3rem;
+		margin-top: 6rem;
 		text-align: center;
 	}
 </style>

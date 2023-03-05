@@ -5,7 +5,7 @@
 	let error = '';
 	let successModal = false;
 
-	async function handleForm(form) {
+	async function handleForm(_form) {
 		return async ({ result, update }) => {
 			if (result.type !== 'error') {
 				successModal = true;
@@ -33,16 +33,13 @@
 {/if}
 <form method="POST" use:enhance={handleForm}>
 	<div class="form-row">
-		<label for="name">Name/Username*</label>
-		<input type="text" id="name" name="name" maxlength="30" required />
+		<input type="text" id="name" name="name" maxlength="30" placeholder="Display Name*" required />
 	</div>
 	<div class="form-row">
-		<label for="email">Email*</label>
-		<input type="email" id="email" name="email" required />
+		<input type="email" id="email" name="email" placeholder="Email* (So I can reply.)" required />
 	</div>
 	<div class="form-row">
-		<label for="body">Message*</label>
-		<textarea id="body" name="body" required rows="4" />
+		<textarea id="body" required name="body" rows="4" placeholder="Your message for me..." />
 	</div>
 	<div class="button-row"><button type="submit">Submit</button></div>
 </form>
@@ -58,10 +55,6 @@
 		margin: 3rem 0;
 		font-family: 'SpecialElite';
 		line-height: 3rem;
-	}
-
-	form {
-		width: 100%;
 	}
 
 	label {
@@ -82,7 +75,7 @@
 		font-family: 'Crimson';
 		width: 100%;
 		padding: 10px;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		font-size: 1rem;
 		border: none;
 		outline: none;
@@ -90,11 +83,28 @@
 		color: var(--background);
 	}
 
+	.form-row input:focus {
+		outline: 4px solid var(--highlight);
+		transition: outline 0.2s;
+	}
+
+	.form-row input::placeholder {
+		font-family: 'Crimson';
+		color: var(--background);
+		opacity: 0.5;
+	}
+
+	.form-row input:hover:not(:focus-visible) {
+		outline: 2px solid var(--highlight);
+		transition: outline 0.2s;
+	}
+
 	.form-row textarea {
 		font-family: 'Crimson';
+		height: 75px;
 		width: 100%;
-		padding: 10px;
-		border-radius: 8px;
+		padding: 1rem;
+		border-radius: var(--border-radius);
 		font-size: 1rem;
 		border: none;
 		outline: none;
@@ -103,22 +113,30 @@
 	}
 
 	.form-row textarea:focus {
+		height: 150px;
 		outline: 4px solid var(--highlight);
+		transition: outline 0.2s, height 0.3s;
 	}
 
-	.form-row input:focus {
-		outline: 4px solid var(--highlight);
+	.form-row textarea::placeholder {
+		font-family: 'Crimson';
+		color: var(--background);
+		opacity: 0.5;
+	}
+
+	.form-row textarea:hover:not(:focus-visible) {
+		outline: 2px solid var(--highlight);
+		transition: outline 0.2s;
 	}
 
 	.button-row {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 
 	.button-row button {
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		border: none;
-		width: 50%;
 		padding: 1rem;
 		font-size: 1.2rem;
 		background-color: var(--primary);
@@ -127,7 +145,9 @@
 	}
 
 	.button-row button:hover {
+		padding: 1.25rem;
 		color: var(--dark-text);
 		background-color: var(--primary-hover);
+		transition: padding 0.2s;
 	}
 </style>

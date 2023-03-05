@@ -1,29 +1,22 @@
 import { error } from '@sveltejs/kit';
 import { verify } from 'twt';
 import config from '../config';
-import { client, queries } from '../db';
+import { client } from '../db';
 
 export async function subscribe({ cookies, request }) {
 	try {
 		const data = await request.formData();
-		let name = data.get('name');
-		let mailto = data.get('email');
+		const name = data.get('name');
+		const mailto = data.get('email');
 
 		if (!name || !mailto) {
-			throw new error(400, 'Required fields are name/username and email.');
+			throw new error(400, 'Required fields are display name and email.');
 		}
 
-		const emailAddressExists = await client.fetch(queries.emailAddress, {
+		await verifyOrAddEmailAddress({
+			name,
 			mailto
 		});
-		if (!emailAddressExists.length === 0) {
-			await addEmail({
-				name,
-				mailto,
-				newsletter: true,
-				promotions: true
-			});
-		}
 
 		cookies.set('hideNewsletterSignUp', true);
 		return { hideNewsletterSignUp: true };

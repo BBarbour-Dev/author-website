@@ -40,7 +40,7 @@
 		text-decoration: none;
 		color: var(--text);
 		padding: 1.5rem;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		border: 2px solid var(--primary);
 		display: flex;
 		flex-wrap: wrap;
@@ -58,7 +58,7 @@
 
 	.cover-image img {
 		height: 100%;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 	}
 
 	.content {

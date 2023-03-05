@@ -66,7 +66,7 @@
 		justify-content: center;
 		padding: 1rem;
 		border: 2px solid var(--primary);
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 	}
 
 	.row {

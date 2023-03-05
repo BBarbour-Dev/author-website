@@ -37,6 +37,6 @@
 		padding: 1rem;
 		background-color: var(--primary);
 		color: var(--background);
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 	}
 </style>
