@@ -78,13 +78,13 @@
 	}
 
 	.avatar {
-		flex-basis: 1;
 		width: 150px;
 		height: 150px;
 		border-radius: 50%;
 	}
 
 	.about-me {
+		min-width: 250px;
 		flex: 1;
 		text-align: justify;
 	}
