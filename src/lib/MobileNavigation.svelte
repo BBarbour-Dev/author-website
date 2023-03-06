@@ -15,7 +15,7 @@
 		class="mobile-nav"
 		on:click={toggleDrawer}
 		on:keydown={toggleDrawer}
-		style={drawerOpen ? 'visibility: visible; width: 350px;' : ''}
+		style={drawerOpen ? 'visibility: visible; width: 80vw;' : ''}
 	>
 		{#if drawerOpen}
 			<div class="drawer">
@@ -60,17 +60,12 @@
 		box-shadow: 8px, 4px, 4px var(--primary);
 	}
 
-	.hamburger button:hover {
-		color: var(--white);
-	}
-
 	.drawer {
 		width: 100%;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-end;
-		padding-bottom: 6rem;
+		justify-content: center;
 		align-items: center;
 		gap: 0.5rem;
 		overflow: hidden;
@@ -89,6 +84,7 @@
 		display: block;
 		text-decoration: none;
 		font-weight: bold;
+		margin-bottom: 1rem;
 		font-family: 'SpecialElite';
 	}
 
@@ -128,7 +124,6 @@
 		display: none;
 		visibility: hidden;
 		height: 100vh;
-		width: 0%;
 		position: fixed;
 		z-index: 1;
 		bottom: 0;
