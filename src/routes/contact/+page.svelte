@@ -3,8 +3,14 @@
 	import ModalContactSuccess from '../../lib/modal/ModalContactSuccess.svelte';
 
 	let error = '';
+
+	let expandedTextArea = false;
 	let isLoading = false;
 	let successModal = false;
+
+	function expandTextArea() {
+		expandTextArea = true;
+	}
 
 	async function handleForm(_form) {
 		isLoading = true;
@@ -43,7 +49,14 @@
 		<input type="email" id="email" name="email" placeholder="Email* (So I can reply.)" required />
 	</div>
 	<div class="form-row">
-		<textarea id="body" required name="body" rows="4" placeholder="Your message for me..." />
+		<textarea
+			id="body"
+			required
+			on:focusin={expandTextArea}
+			name="body"
+			style={expandTextArea ? 'height: 150px' : ''}
+			placeholder="Your message for me..."
+		/>
 	</div>
 	<div class="button-row"><button type="submit">Submit</button></div>
 </form>
@@ -61,18 +74,9 @@
 		line-height: 3rem;
 	}
 
-	label {
-		display: block;
-	}
-
 	.form-row {
 		width: 100%;
 		margin-bottom: 1rem;
-	}
-
-	.form-row label {
-		margin-bottom: 0.5rem;
-		font-weight: bold;
 	}
 
 	.form-row input {
