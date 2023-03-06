@@ -7,8 +7,8 @@
 	let successModal = false;
 
 	async function handleForm(_form) {
+		isLoading = true;
 		return async ({ result, update }) => {
-			isLoading = true;
 			if (result.type !== 'error') {
 				isLoading = false;
 				successModal = true;
