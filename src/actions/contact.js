@@ -7,6 +7,7 @@ import { verifyOrAddEmailAddress } from '../helpers/addEmail';
 const mg = mailgun({ apiKey: config.MAIL_API_KEY, domain: config.MAIL_SERVER });
 
 export async function contact({ request }) {
+	console.log('called contact action');
 	try {
 		const data = await request.formData();
 		const name = data.get('name');
@@ -29,6 +30,7 @@ export async function contact({ request }) {
 			text: body
 		});
 
+		console.log('ending contact');
 		return 'sucess';
 	} catch (err) {
 		console.error(err);

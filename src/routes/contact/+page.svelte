@@ -3,14 +3,18 @@
 	import ModalContactSuccess from '../../lib/modal/ModalContactSuccess.svelte';
 
 	let error = '';
+	let isLoading = false;
 	let successModal = false;
 
 	async function handleForm(_form) {
 		return async ({ result, update }) => {
+			isLoading = true;
 			if (result.type !== 'error') {
+				isLoading = false;
 				successModal = true;
 				update();
 			} else {
+				isLoading = false;
 				error =
 					result.status === 500 ? 'Internal server error. Please try again.' : result.error.message;
 				await asyncTimeout(5000);

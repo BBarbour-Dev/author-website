@@ -24,6 +24,7 @@
 				isLoading = false;
 				update();
 			} else {
+				isLoading = false;
 				error =
 					result.status === 500 ? 'Internal server error. Please try again.' : result.error.message;
 				await asyncTimeout(5000);
