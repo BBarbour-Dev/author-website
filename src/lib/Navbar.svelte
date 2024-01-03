@@ -23,12 +23,6 @@
 			action: false
 		},
 		{
-			href: '/contact',
-			text: 'Contact',
-			external: false,
-			action: false
-		},
-		{
 			href: '#newsletter',
 			text: 'Newsletter',
 			external: false,
